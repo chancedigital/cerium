@@ -1,0 +1,24 @@
+{
+  "name": "CS-Base",
+  "type": "wordpress-theme",
+  "description": "Awesome starter theme.",
+  "authors": [
+    {
+      "name": "Chance Strickland",
+      "email": "hi@chancedigital.io"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "tgmpa/tgm-plugin-activation": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "CS_Base\\": "inc/classes/"
+    }
+  },
+  "require-dev": {
+    "10up/wp_mock": "dev-dev",
+    "kint-php/kint": "^2.2"
+  }
+}
