@@ -24,8 +24,11 @@ $chances_basetheme_inc = [
 ];
 
 foreach ( $chances_basetheme_inc as $inc ) {
-	if ( file_exists( CHANCES_BASETHEME_INC . $inc ) ) {
-		require_once CHANCES_BASETHEME_INC . $inc;
+	foreach ( $chances_basetheme_inc as $inc ) {
+		$chances_basetheme_inc_file = TAILTRAX_INC . "$inc.php";
+		if ( file_exists( $chances_basetheme_inc_file ) ) {
+			require_once $chances_basetheme_inc_file;
+		}
 	}
 }
 
