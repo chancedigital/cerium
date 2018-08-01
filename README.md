@@ -25,7 +25,7 @@ Eventually I will work up a CLI tool to quickly setup and deploy new projects wi
 	* **Chances\\\\WordPressBasetheme** (e.g., Client_Name\\\\Project or Client_Name)
 	* **Chances\\WordPressBasetheme** (e.g., Client_Name\\Project or Client_Name)
 	* **chances-basetheme** (e.g., cs-client-name)
-	* **chances_basetheme_basetheme** (e.g., chances_basetheme_client_name)
+	* **chances_basetheme** (e.g., chances_basetheme_client_name)
 	* **Chances Basetheme** (e.g., Client Name)
 * From the theme directory, run `npm run start` to begin development.
 
