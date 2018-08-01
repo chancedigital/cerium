@@ -2,7 +2,7 @@
 /**
  * The main template file.
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
 get_header();

@@ -2,40 +2,40 @@
 /**
  * Clean up WordPress defaults
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
-if ( ! function_exists( 'cs_base_start_cleanup' ) ) :
+if ( ! function_exists( 'chances_basetheme_start_cleanup' ) ) :
 	/**
 	 * Add hooks.
 	 */
-	function cs_base_start_cleanup() {
+	function chances_basetheme_start_cleanup() {
 
 		// Launching operation cleanup.
-		add_action( 'init', 'cs_base_cleanup_head' );
+		add_action( 'init', 'chances_basetheme_cleanup_head' );
 
 		// Remove WP version from RSS.
-		add_filter( 'the_generator', 'cs_base_remove_rss_version' );
+		add_filter( 'the_generator', 'chances_basetheme_remove_rss_version' );
 
 		// Remove pesky injected css for recent comments widget.
-		add_filter( 'wp_head', 'cs_base_remove_wp_widget_recent_comments_style', 1 );
+		add_filter( 'wp_head', 'chances_basetheme_remove_wp_widget_recent_comments_style', 1 );
 
 		// Clean up comment styles in the head.
-		add_action( 'wp_head', 'cs_base_remove_recent_comments_style', 1 );
+		add_action( 'wp_head', 'chances_basetheme_remove_recent_comments_style', 1 );
 	}
 
-	add_action( 'after_setup_theme', 'cs_base_start_cleanup' );
+	add_action( 'after_setup_theme', 'chances_basetheme_start_cleanup' );
 
 endif;
 
 /**
  * Clean up head.
  */
-if ( ! function_exists( 'cs_base_cleanup_head' ) ) :
+if ( ! function_exists( 'chances_basetheme_cleanup_head' ) ) :
 	/**
 	 * Clean up HTML head
 	 */
-	function cs_base_cleanup_head() {
+	function chances_basetheme_cleanup_head() {
 
 		// EditURI link.
 		remove_action( 'wp_head', 'rsd_link' );
@@ -78,31 +78,31 @@ if ( ! function_exists( 'cs_base_cleanup_head' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'cs_base_remove_rss_version' ) ) :
+if ( ! function_exists( 'chances_basetheme_remove_rss_version' ) ) :
 	/**
 	 * Remove WP version from RSS.
 	 */
-	function cs_base_remove_rss_version() {
+	function chances_basetheme_remove_rss_version() {
 		return '';
 	}
 endif;
 
-if ( ! function_exists( 'cs_base_remove_wp_widget_recent_comments_style' ) ) :
+if ( ! function_exists( 'chances_basetheme_remove_wp_widget_recent_comments_style' ) ) :
 	/**
 	 * Remove injected CSS for recent comments widget.
 	 */
-	function cs_base_remove_wp_widget_recent_comments_style() {
+	function chances_basetheme_remove_wp_widget_recent_comments_style() {
 		if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
 			remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
 		}
 	}
 endif;
 
-if ( ! function_exists( 'cs_base_remove_recent_comments_style' ) ) :
+if ( ! function_exists( 'chances_basetheme_remove_recent_comments_style' ) ) :
 	/**
 	 * Remove injected CSS from recent comments widget.
 	 */
-	function cs_base_remove_recent_comments_style() {
+	function chances_basetheme_remove_recent_comments_style() {
 		global $wp_widget_factory;
 		if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
 			remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );

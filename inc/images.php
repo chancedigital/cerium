@@ -2,7 +2,7 @@
 /**
  * Handle WP images.
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
 /**
@@ -13,10 +13,10 @@
  * @param  string $post_image_id  The post thumbnail ID.
  * @return string                  Modified HTML.
  */
-function cs_base_remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
+function chances_basetheme_remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
 	if ( ! strpos( $html, 'attachment-shop_single' ) ) {
 		$html = preg_replace( '/^(width|height)=\"\d*\"\s/', '', $html );
 	}
 	return $html;
 }
-add_filter( 'post_thumbnail_html', 'cs_base_remove_thumbnail_dimensions', 10, 3 );
+add_filter( 'post_thumbnail_html', 'chances_basetheme_remove_thumbnail_dimensions', 10, 3 );

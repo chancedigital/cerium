@@ -18,15 +18,15 @@ This starter theme was inspired by (and large chunks of it just plain stolen fro
 
 ### Get Started
 Eventually I will work up a CLI tool to quickly setup and deploy new projects with the theme. For now, start by setting up a local install of WordPress and cloning this repo into `wp-content/themes`. Then:
-* Rename `cs-base` to your project name.
-	* I recommend using something short but unique. Always use a unique prefix (I use `cs`) to prevent potential conflicts with themes in the WP.org repo (e.g., `cs-clientname`).
+* Rename `chances-basetheme` to your project name.
+	* I recommend using something short but unique. Always use a unique prefix (I use `chances`) to prevent potential conflicts with themes in the WP.org repo (e.g., `chances-clientname`).
 * Do case-sensitive search/replace for the following to match the slug chosen for your theme directory:
-	* **CsBase** (e.g., CsClientName)
-	* **CS_BASE** (e.g., CS_CLIENT_NAME)
-	* **CS_Base** (e.g., CS_Client_Name)
-	* **cs-base** (e.g., cs-client-name)
-	* **cs_base** (e.g., cs_client_name)
-	* **CS Base** (e.g., CS Client Name)
+	* **CHANCES_BASETHEME** (e.g., CS_CLIENT_NAME)
+	* **Chances\\\\WordPressBasetheme** (e.g., Client_Name\\\\Project or Client_Name)
+	* **Chances\\WordPressBasetheme** (e.g., Client_Name\\Project or Client_Name)
+	* **chances-basetheme** (e.g., cs-client-name)
+	* **chances_basetheme_basetheme** (e.g., chances_basetheme_client_name)
+	* **Chances Basetheme** (e.g., Client Name)
 * From the theme directory, run `npm run start` to begin development.
 
 ## Commands

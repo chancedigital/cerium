@@ -2,10 +2,10 @@
 /**
  * Core setup, site hooks and filters.
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
-namespace CS_Base\Core;
+namespace Chances\WordPressBasetheme\Core;
 
 /**
  * Set up theme defaults and register supported WordPress features.
@@ -31,11 +31,11 @@ function setup() {
  * Makes Theme available for translation.
  *
  * Translations can be added to the /languages directory.
- * If you're building a theme based on "cs-base", change the
- * filename of '/languages/cs-base.pot' to the name of your project.
+ * If you're building a theme based on "chances-basetheme", change the
+ * filename of '/languages/chances-basetheme.pot' to the name of your project.
  */
 function i18n() {
-	load_theme_textdomain( 'cs-base', CS_BASE_PATH . '/languages' );
+	load_theme_textdomain( 'chances-basetheme', CHANCES_BASETHEME_PATH . '/languages' );
 }
 
 /**
@@ -70,14 +70,14 @@ function theme_setup() {
 	add_image_size( 'featured-xlarge', 1920, 400, true );
 
 	// Load editor stylesheet.
-	add_editor_style( CS_BASE_TEMPLATE_URL . '/dist/css/editor.min.css' );
+	add_editor_style( CHANCES_BASETHEME_TEMPLATE_URL . '/dist/css/editor.min.css' );
 
 	// Register nav menus.
 	register_nav_menus( array(
-		'main-navigation'      => __( 'Main Navigation', 'cs-base' ),
-		'secondary-navigation' => __( 'Secondary Navigation', 'cs-base' ),
-		'footer-navigation'    => __( 'Footer Navigation', 'cs-base' ),
-		'social'               => __( 'Social Navigation', 'cs-base' ),
+		'main-navigation'      => __( 'Main Navigation', 'chances-basetheme' ),
+		'secondary-navigation' => __( 'Secondary Navigation', 'chances-basetheme' ),
+		'footer-navigation'    => __( 'Footer Navigation', 'chances-basetheme' ),
+		'social'               => __( 'Social Navigation', 'chances-basetheme' ),
 	) );
 }
 
@@ -100,7 +100,7 @@ function scripts() {
 	wp_enqueue_script( 'jquery-migrate' );
 
 	// Frontend JS.
-	wp_register_script( 'frontend', CS_BASE_TEMPLATE_URL . '/dist/js/frontend.min.js', [], CS_BASE_VERSION, true );
+	wp_register_script( 'frontend', CHANCES_BASETHEME_TEMPLATE_URL . '/dist/js/frontend.min.js', [], CHANCES_BASETHEME_VERSION, true );
 	wp_localize_script( 'frontend', 'csAjax', [
 		'ajaxUrl' => esc_url( admin_url( 'admin-ajax.php' ) ),
 	] );
@@ -118,7 +118,7 @@ function scripts() {
  */
 function styles() {
 
-	wp_enqueue_style( 'frontend', CS_BASE_TEMPLATE_URL . '/dist/css/frontend.min.css', [], CS_BASE_VERSION );
+	wp_enqueue_style( 'frontend', CHANCES_BASETHEME_TEMPLATE_URL . '/dist/css/frontend.min.css', [], CHANCES_BASETHEME_VERSION );
 }
 
 /**
@@ -213,8 +213,8 @@ function plugins() {
 if ( function_exists( 'acf_add_options_page' ) ) {
 
 	acf_add_options_page( [
-		'page_title' => __( 'Theme Settings', 'cs-base' ),
-		'menu_title' => __( 'Theme Settings', 'cs-base' ),
+		'page_title' => __( 'Theme Settings', 'chances-basetheme' ),
+		'menu_title' => __( 'Theme Settings', 'chances-basetheme' ),
 		'menu_slug'  => 'theme-general-settings',
 		'capability' => 'edit_posts',
 		'redirect'   => false,

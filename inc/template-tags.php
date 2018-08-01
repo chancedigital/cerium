@@ -2,17 +2,17 @@
 /**
  * Custom template tags for this theme.
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
-if ( ! function_exists( 'cs_base_body_classes' ) ) :
+if ( ! function_exists( 'chances_basetheme_body_classes' ) ) :
 	/**
 	 * Filter body classes for pages.
 	 *
 	 * @param  array $classes  Class list.
 	 * @return array           Modified class list.
 	 */
-	function cs_base_body_classes( array $classes ) {
+	function chances_basetheme_body_classes( array $classes ) {
 
 		// Add page slug if it doesn't exist.
 		if ( is_single() || is_page() && ! is_front_page() ) {
@@ -28,5 +28,5 @@ if ( ! function_exists( 'cs_base_body_classes' ) ) :
 		}, $classes);
 		return array_filter( $classes );
 	}
-	add_filter( 'body_class', 'cs_base_body_classes' );
+	add_filter( 'body_class', 'chances_basetheme_body_classes' );
 endif;

@@ -4,7 +4,7 @@
 			<div class="cell">
 				<?php
 				if ( is_404() ) {
-					echo '<h1>' . __( 'Page not found', 'cs-base' ) . '</h1>'; // WPCS: XSS Ok.
+					echo '<h1>' . __( 'Page not found', 'chances-basetheme' ) . '</h1>'; // WPCS: XSS Ok.
 				} elseif ( is_archive() ) {
 					the_archive_title( '<h1>', '</h1>' );
 				} else {

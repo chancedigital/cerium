@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="CsBase">
+<ruleset name="Chances Basetheme">
 	<description>A custom set of rules to check for a (mostly) WordPress coding standards</description>
 
 	<!-- Exclude node and composer folders -->
@@ -50,13 +50,13 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="cs-base"/>
+			<property name="text_domain" type="array" value="chances-basetheme"/>
 		</properties>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="cs_base,cs"/>
+			<property name="prefixes" type="array" value="chances_basetheme_basetheme,chances"/>
 		</properties>
 	</rule>
 

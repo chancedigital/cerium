@@ -3,22 +3,22 @@
  * SVG icons related functions and filters
  * Stolen from twentyseventeen
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
 /**
  * Add SVG definitions to the footer.
  */
-function cs_include_svg_icons() {
+function chances_basetheme_include_svg_icons() {
 	// Define SVG sprite file.
-	$svg_icons = CS_BASE_PATH . 'assets/img/svg-icons.svg';
+	$svg_icons = CHANCES_BASETHEME_PATH . 'assets/img/svg-icons.svg';
 
 	// If it exists, include it.
 	if ( file_exists( $svg_icons ) ) {
 		require_once $svg_icons;
 	}
 }
-add_action( 'wp_footer', 'cs_include_svg_icons', 9999 );
+add_action( 'wp_footer', 'chances_basetheme_include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
@@ -32,15 +32,15 @@ add_action( 'wp_footer', 'cs_include_svg_icons', 9999 );
  * }
  * @return string SVG markup.
  */
-function cs_get_svg( $args = array() ) {
+function chances_basetheme_get_svg( $args = array() ) {
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
-		return __( 'Please define default parameters in the form of an array.', 'cs-base' );
+		return __( 'Please define default parameters in the form of an array.', 'chances-basetheme' );
 	}
 
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
-		return __( 'Please define an SVG icon filename.', 'cs-base' );
+		return __( 'Please define an SVG icon filename.', 'chances-basetheme' );
 	}
 
 	// Set defaults.
@@ -65,9 +65,9 @@ function cs_get_svg( $args = array() ) {
 	 *
 	 * However, child themes can use the title and description to add information to non-decorative SVG icons to improve accessibility.
 	 *
-	 * Example 1 with title: <?php echo cs_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
+	 * Example 1 with title: <?php echo chances_basetheme_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
 	 *
-	 * Example 2 with title and description: <?php echo cs_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
+	 * Example 2 with title and description: <?php echo chances_basetheme_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
 	 *
 	 * See https://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/.
 	 */
@@ -122,22 +122,22 @@ function cs_get_svg( $args = array() ) {
  * @param  array   $args        wp_nav_menu() arguments.
  * @return string  $item_output The menu item output with social icon.
  */
-function cs_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+function chances_basetheme_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Get supported social icons.
-	$social_icons = cs_social_links_icons();
+	$social_icons = chances_basetheme_social_links_icons();
 
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
-				$item_output = str_replace( $args->link_after, '</span>' . cs_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
+				$item_output = str_replace( $args->link_after, '</span>' . chances_basetheme_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
 			}
 		}
 	}
 
 	return $item_output;
 }
-add_filter( 'walker_nav_menu_start_el', 'cs_nav_menu_social_icons', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'chances_basetheme_nav_menu_social_icons', 10, 4 );
 
 /**
  * Add dropdown icon if menu item has children.
@@ -148,25 +148,25 @@ add_filter( 'walker_nav_menu_start_el', 'cs_nav_menu_social_icons', 10, 4 );
  * @param  int     $depth Depth of menu item. Used for padding.
  * @return string  $title The menu item's title with dropdown icon.
  */
-function cs_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+function chances_basetheme_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	if ( 'main-navigation' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . cs_get_svg( array( 'icon' => 'angle-down' ) );
+				$title = $title . chances_basetheme_get_svg( array( 'icon' => 'angle-down' ) );
 			}
 		}
 	}
 
 	return $title;
 }
-add_filter( 'nav_menu_item_title', 'cs_dropdown_icon_to_menu_link', 10, 4 );
+add_filter( 'nav_menu_item_title', 'chances_basetheme_dropdown_icon_to_menu_link', 10, 4 );
 
 /**
  * Returns an array of supported social links (URL and icon name).
  *
  * @return array $social_links_icons
  */
-function cs_social_links_icons() {
+function chances_basetheme_social_links_icons() {
 	// Supported social links icons.
 	$social_links_icons = array(
 		'behance.net'     => 'behance',
@@ -213,7 +213,7 @@ function cs_social_links_icons() {
 	 *
 	 * @param array $social_links_icons Array of social links icons.
 	 */
-	return apply_filters( 'cs_social_links_icons', $social_links_icons );
+	return apply_filters( 'chances_basetheme_social_links_icons', $social_links_icons );
 }
 
 /**
@@ -224,7 +224,7 @@ function cs_social_links_icons() {
  * @param  array  $classes CSS classes.
  * @return string          HTML for output.
  */
-function cs_team_contact_icon( $item = '', $label = 'Phone Number', $classes = [ 'single-team__contact-icon', 'icon-list__item' ] ) {
+function chances_basetheme_team_contact_icon( $item = '', $label = 'Phone Number', $classes = [ 'single-team__contact-icon', 'icon-list__item' ] ) {
 	if ( $item ) {
 		// Validate link type.
 		// Phone validation

@@ -1,5 +1,5 @@
 {
-  "name": "cs-base",
+  "name": "chances-basetheme",
   "version": "1.0.0",
   "description": "Project Description",
   "homepage": "https://project-domain.tld",
@@ -46,6 +46,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^8.0.0-beta",
+    "babel-plugin-inline-json-import": "^0.2.1",
     "browserslist": "^3.2.8",
     "caniuse-db": "^1.0.30000853",
     "dateformat": "^3.0.3",

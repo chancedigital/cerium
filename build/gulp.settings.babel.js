@@ -4,7 +4,7 @@ const baseDir      = path.resolve( __dirname, '../' );
 const nodeModules  = path.resolve( __dirname, '../node_modules' );
 const assets       = path.resolve( __dirname, '../assets' );
 const dist         = path.resolve( __dirname, '../dist' );
-const themeName    = 'cs-base';
+const themeName    = 'chances-basetheme';
 const publicPath   = `/wp-content/themes/${themeName}/${path.basename( dist )}/`;
 
 module.exports = {

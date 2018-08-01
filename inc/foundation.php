@@ -2,10 +2,10 @@
 /**
  * Foundation template mods.
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
-if ( ! function_exists( 'cs_base_responsive_video_oembed_html' ) ) :
+if ( ! function_exists( 'chances_basetheme_responsive_video_oembed_html' ) ) :
 	/**
 	 * Enable Foundation responsive embeds for WP video embeds.
 	 *
@@ -15,7 +15,7 @@ if ( ! function_exists( 'cs_base_responsive_video_oembed_html' ) ) :
 	 * @param int    $post_id  Post ID.
 	 * @return mixed           Modified HTML.
 	 */
-	function cs_base_responsive_video_oembed_html( $html, $url, $attr, $post_id ) {
+	function chances_basetheme_responsive_video_oembed_html( $html, $url, $attr, $post_id ) {
 
 		// Whitelist of oEmbed compatible sites that **ONLY** support video.
 		// Cannot determine if embed is a video or not from sites that
@@ -72,22 +72,22 @@ if ( ! function_exists( 'cs_base_responsive_video_oembed_html' ) ) :
 			return $html;
 		}
 	}
-	add_filter( 'embed_oembed_html', 'cs_base_responsive_video_oembed_html', 10, 4 );
+	add_filter( 'embed_oembed_html', 'chances_basetheme_responsive_video_oembed_html', 10, 4 );
 endif;
 
-if ( ! function_exists( 'cs_base_sticky_posts' ) ) :
+if ( ! function_exists( 'chances_basetheme_sticky_posts' ) ) :
 	/**
 	 * Change the class for sticky posts to .wp-sticky to avoid conflicts with Foundation's Sticky plugin.
 	 *
 	 * @param  array $classes  Class list.
 	 * @return array           Modified class list.
 	 */
-	function cs_base_sticky_posts( $classes ) {
+	function chances_basetheme_sticky_posts( $classes ) {
 		if ( in_array( 'sticky', $classes, true ) ) {
 			$classes   = array_diff( $classes, array( 'sticky' ) );
 			$classes[] = 'wp-sticky';
 		}
 		return $classes;
 	}
-	add_filter( 'post_class', 'cs_base_sticky_posts' );
+	add_filter( 'post_class', 'chances_basetheme_sticky_posts' );
 endif;

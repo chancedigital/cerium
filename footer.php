@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer.
  *
- * @package cs-base
+ * @package chances-basetheme
  */
 
 ?>

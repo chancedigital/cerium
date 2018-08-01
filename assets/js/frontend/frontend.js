@@ -1,10 +1,6 @@
 // Import external dependencies.
 import 'what-input';
-
-// Import Foundation.
-// Alternatively, you can import only the plugins/components that you need.
-import 'foundation-sites/js/entries/foundation';
-import 'foundation-sites/js/entries/foundation-plugins';
+import initFoundation from '../_vendor/_foundation';
 
 // Import local dependencies.
 import Router from '../_util/Router';
@@ -20,7 +16,7 @@ const routes = new Router( {
 } );
 
 // Init Foundation.
-jQuery( document ).ready( $ => ( $( document ).foundation() ) );
+initFoundation();
 
 // Load route events.
 jQuery( document ).ready( () => routes.loadEvents() );
