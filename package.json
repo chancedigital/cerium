@@ -5,7 +5,7 @@
   "homepage": "https://project-domain.tld",
   "repository": {
     "type": "git",
-    "url": "https://project-git-repo.tld"
+    "url": "https://github.com/chancestrickland/wp-base"
   },
   "author": {
     "name": "Chance Strickland",
