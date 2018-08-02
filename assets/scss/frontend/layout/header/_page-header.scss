@@ -1,0 +1,23 @@
+.page-header {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		background-size: cover;
+		background-position: center;
+		transition: 1s opacity;
+	}
+
+	> .grid-container {
+		position: relative;
+	}
+}

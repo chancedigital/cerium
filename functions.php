@@ -11,13 +11,16 @@ define( 'CHANCES_BASETHEME_URL', get_stylesheet_directory_uri() );
 define( 'CHANCES_BASETHEME_TEMPLATE_URL', get_template_directory_uri() );
 define( 'CHANCES_BASETHEME_PATH', get_template_directory() . '/' );
 define( 'CHANCES_BASETHEME_INC', CHANCES_BASETHEME_PATH . 'inc/' );
+define( 'CHANCES_BASETHEME_IMG_URL', CHANCES_BASETHEME_TEMPLATE_URL . '/dist/img' );
 define( 'CHANCES_BASETHEME_NAMESPACE', 'Chances\\WordPressBasetheme' );
 
 // Require function files.
 $chances_basetheme_inc = [
+	'util',
 	'autoload',
 	'core',
-	'template-tags',
+	'cleanup',
+	'template',
 	'foundation',
 	'images',
 	'icons',

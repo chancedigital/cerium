@@ -64,10 +64,10 @@ function theme_setup() {
 	// Add featured image sizes.
 	// Sizes are optimized and cropped for landscape aspect ratio and
 	// optimized for HiDPI displays on 'small' and 'medium' screen sizes.
-	add_image_size( 'featured-small', 640, 200, true );
-	add_image_size( 'featured-medium', 1280, 400, true );
-	add_image_size( 'featured-large', 1440, 400, true );
-	add_image_size( 'featured-xlarge', 1920, 400, true );
+	add_image_size( 'featured-small', 640, 9999 );
+	add_image_size( 'featured-medium', 1280, 9999 );
+	add_image_size( 'featured-large', 1440, 9999 );
+	add_image_size( 'featured-xlarge', 1920, 9999 );
 
 	// Load editor stylesheet.
 	add_editor_style( CHANCES_BASETHEME_TEMPLATE_URL . '/dist/css/editor.min.css' );
