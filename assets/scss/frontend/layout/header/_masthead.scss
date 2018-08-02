@@ -1,0 +1,36 @@
+.masthead {
+	$self: &;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	transition: 0.2s all ease-in-out;
+	padding: 22px 0;
+	z-index: 2;
+
+	@include breakpoint(medium) {
+		position: fixed;
+	}
+
+	body.admin-bar & {
+		top: 32px;
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
+
+	&--sticky {
+		box-shadow: 0 3px 15px 0 rgba(74, 74, 74, 0.125);
+		padding: 12px 0;
+	}
+
+	&__hamburger {
+		position: absolute;
+		right: rem-calc(15);
+		top: 50%;
+		transform: translateY(-50%);
+
+		@include breakpoint(medium) {
+			display: none;
+		}
+	}
+}

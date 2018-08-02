@@ -1,3 +1,4 @@
+import initHamburger from '../components/hamburger';
 import initMasthead from '../layout/header/masthead';
 
 export default {
@@ -6,6 +7,7 @@ export default {
 	}, // End init.
 
 	finalize() {
+		initHamburger();
 		initMasthead();
 	}, // End finalize.
 };
