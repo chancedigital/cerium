@@ -2,8 +2,12 @@
 /**
  * Handle WP images.
  *
- * @package chances-basetheme
+ * @package cerium
  */
+
+namespace ChanceDigital\Cerium\Images;
+
+add_filter( 'post_thumbnail_html', __NAMESPACE__ . '\\remove_thumbnail_dimensions', 10, 3 );
 
 /**
  * Remove inline width and height attributes for post thumbnails.
@@ -13,10 +17,9 @@
  * @param  string $post_image_id  The post thumbnail ID.
  * @return string                  Modified HTML.
  */
-function chances_basetheme_remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
+function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
 	if ( ! strpos( $html, 'attachment-shop_single' ) ) {
 		$html = preg_replace( '/^(width|height)=\"\d*\"\s/', '', $html );
 	}
 	return $html;
 }
-add_filter( 'post_thumbnail_html', 'chances_basetheme_remove_thumbnail_dimensions', 10, 3 );

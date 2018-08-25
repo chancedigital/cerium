@@ -35,7 +35,6 @@ export default () => {
 		$( window ).scroll( { previousTop: 0 }, handleMasthead );
 		$( window ).on( 'changed.zf.mediaquery', function( e, newSize, oldSize ) {
 			if ( 'small' === newSize ) {
-				console.log( 'small!' );
 				$masthead.removeClass( mastheadStickyClass );
 				$topNav.removeClass( topNavStickyClass );
 				$( window ).unbind( 'scroll' );

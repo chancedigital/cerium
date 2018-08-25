@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer.
  *
- * @package chances-basetheme
+ * @package cerium
  */
 
 ?>

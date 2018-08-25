@@ -6,7 +6,7 @@
 	list-style: none;
 }
 
-.comment-form input[type="submit"] {
+.comment-form input[ type="submit" ] {
 	@extend .button;
 	@extend .secondary;
 }

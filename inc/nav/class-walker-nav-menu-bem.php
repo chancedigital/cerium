@@ -2,10 +2,10 @@
 /**
  * Custom navigation walker for the topnav menu.
  *
- * @package chances-basetheme
+ * @package cerium
  */
 
-namespace Chances\WordPressBasetheme;
+namespace ChanceDigital\Cerium\Nav;
 
 if ( ! defined( 'WPINC' ) ) {
 	exit;
@@ -16,7 +16,6 @@ if ( ! defined( 'WPINC' ) ) {
  */
 class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 
-
 	/**
 	 * Start the element output.
 	 *
@@ -26,7 +25,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 	 * @param  array  $args    An array of additional arguments.
 	 * @param  int    $id      ID of the current item.
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
@@ -36,7 +35,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		}
 		$indent  = ( $depth ) ? str_repeat( $t, $depth ) : '';
 		$lvl     = $depth + 1;
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
 
 		// BEM stuff.
 		if ( ! empty( $args->container_class ) ) {
@@ -75,7 +74,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		 * @param WP_Post  $item  Menu item data object.
 		 * @param int      $depth Depth of menu item. Used for padding.
 		 */
-		$args = apply_filters( 'chances_basetheme_nav_menu_bem_item_args', $args, $item, $depth );
+		$args = apply_filters( 'cerium_nav_menu_bem_item_args', $args, $item, $depth );
 
 		/**
 		 * Filters the CSS class(es) applied to a menu item's list item element.
@@ -85,7 +84,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		 * @param stdClass $args    An object of wp_nav_menu() arguments.
 		 * @param int      $depth   Depth of menu item. Used for padding.
 		 */
-		$class_names = join( ' ', apply_filters( 'chances_basetheme_nav_menu_bem_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		$class_names = join( ' ', apply_filters( 'cerium_nav_menu_bem_css_class', array_filter( $classes ), $item, $args, $depth ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 		/**
@@ -99,12 +98,12 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		 * @param stdClass $args    An object of wp_nav_menu() arguments.
 		 * @param int      $depth   Depth of menu item. Used for padding.
 		 */
-		$id = apply_filters( 'chances_basetheme_nav_menu_bem_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
+		$id = apply_filters( 'cerium_nav_menu_bem_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
 		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 		$output .= $indent . '<li' . $id . $class_names . '>';
 
-		$atts = array();
+		$atts = [];
 
 		// phpcs:disable
 		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -132,7 +131,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		 * @param stdClass $args  An object of wp_nav_menu() arguments.
 		 * @param int      $depth Depth of menu item. Used for padding.
 		 */
-		$atts = apply_filters( 'chances_basetheme_nav_menu_bem_link_attributes', $atts, $item, $args, $depth );
+		$atts = apply_filters( 'cerium_nav_menu_bem_link_attributes', $atts, $item, $args, $depth );
 
 		$attributes = '';
 		foreach ( $atts as $attr => $value ) {
@@ -143,7 +142,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		}
 
 		/** Original filter (the_title) is documented in wp-includes/post-template.php */
-		$title = apply_filters( 'chances_basetheme_bem_the_title', $item->title, $item->ID );
+		$title = apply_filters( 'cerium_bem_the_title', $item->title, $item->ID );
 
 		/**
 		 * Filters a menu item's title.
@@ -153,7 +152,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		 * @param stdClass $args  An object of wp_nav_menu() arguments.
 		 * @param int      $depth Depth of menu item. Used for padding.
 		 */
-		$title = apply_filters( 'chances_basetheme_nav_menu_bem_item_title', $title, $item, $args, $depth );
+		$title = apply_filters( 'cerium_nav_menu_bem_item_title', $title, $item, $args, $depth );
 
 		$item_output  = $args->before;
 		$item_output .= "<a{$attributes}>";
@@ -173,7 +172,7 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 		 * @param int      $depth       Depth of menu item. Used for padding.
 		 * @param stdClass $args        An object of wp_nav_menu() arguments.
 		 */
-		$output .= apply_filters( 'chances_basetheme_walker_nav_menu_bem_start_el', $item_output, $item, $depth, $args );
+		$output .= apply_filters( 'cerium_walker_nav_menu_bem_start_el', $item_output, $item, $depth, $args );
 	}
 
 	/**
@@ -204,9 +203,9 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 			}
 		} else {
 			// Default class name.
-			$classes = array( 'sub-menu' );
+			$classes = [ 'sub-menu' ];
 		}
-		$class_names = join( ' ', apply_filters( 'chances_basetheme_nav_menu_bem_submenu_css_class', $classes, $args, $depth ) );
+		$class_names = join( ' ', apply_filters( 'cerium_nav_menu_bem_submenu_css_class', $classes, $args, $depth ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 		$output     .= "{$n}{$indent}<ul{$class_names}>{$n}";
 	}

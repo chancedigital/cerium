@@ -2,10 +2,10 @@
 /**
  * Core setup, site hooks and filters.
  *
- * @package chances-basetheme
+ * @package cerium
  */
 
-namespace Chances\WordPressBasetheme\Core;
+namespace ChanceDigital\Cerium\Core;
 
 /**
  * Set up theme defaults and register supported WordPress features.
@@ -23,7 +23,6 @@ function setup() {
 	add_action( 'wp_enqueue_scripts',        $n( 'scripts' ) );
 	add_action( 'wp_enqueue_scripts',        $n( 'styles' ) );
 	add_action( 'widgets_init',              $n( 'widgets' ) );
-	add_action( 'tgmpa_register',            $n( 'plugins' ) );
 	//add_filter( 'acf/fields/google_map/api', $n( 'acf_map_api' ) );
 }
 
@@ -31,11 +30,11 @@ function setup() {
  * Makes Theme available for translation.
  *
  * Translations can be added to the /languages directory.
- * If you're building a theme based on "chances-basetheme", change the
- * filename of '/languages/chances-basetheme.pot' to the name of your project.
+ * If you're building a theme based on "cerium", change the
+ * filename of '/languages/cerium.pot' to the name of your project.
  */
 function i18n() {
-	load_theme_textdomain( 'chances-basetheme', CHANCES_BASETHEME_PATH . '/languages' );
+	load_theme_textdomain( 'cerium', CERIUM_PATH . '/languages' );
 }
 
 /**
@@ -70,15 +69,15 @@ function theme_setup() {
 	add_image_size( 'featured-xlarge', 1920, 9999 );
 
 	// Load editor stylesheet.
-	add_editor_style( CHANCES_BASETHEME_TEMPLATE_URL . '/dist/css/editor.min.css' );
+	add_editor_style( CERIUM_TEMPLATE_URL . '/dist/css/editor.min.css' );
 
 	// Register nav menus.
-	register_nav_menus( array(
-		'main-navigation'      => __( 'Main Navigation', 'chances-basetheme' ),
-		'secondary-navigation' => __( 'Secondary Navigation', 'chances-basetheme' ),
-		'footer-navigation'    => __( 'Footer Navigation', 'chances-basetheme' ),
-		'social'               => __( 'Social Navigation', 'chances-basetheme' ),
-	) );
+	register_nav_menus( [
+		'main-navigation'      => __( 'Main Navigation', 'cerium' ),
+		'secondary-navigation' => __( 'Secondary Navigation', 'cerium' ),
+		'footer-navigation'    => __( 'Footer Navigation', 'cerium' ),
+		'social'               => __( 'Social Navigation', 'cerium' ),
+	] );
 }
 
 /**
@@ -100,7 +99,7 @@ function scripts() {
 	wp_enqueue_script( 'jquery-migrate' );
 
 	// Frontend JS.
-	wp_register_script( 'frontend', CHANCES_BASETHEME_TEMPLATE_URL . '/dist/js/frontend.min.js', [], CHANCES_BASETHEME_VERSION, true );
+	wp_register_script( 'frontend', CERIUM_TEMPLATE_URL . '/dist/js/frontend.min.js', [], CERIUM_VERSION, true );
 	wp_localize_script( 'frontend', 'csAjax', [
 		'ajaxUrl' => esc_url( admin_url( 'admin-ajax.php' ) ),
 	] );
@@ -118,7 +117,7 @@ function scripts() {
  */
 function styles() {
 
-	wp_enqueue_style( 'frontend', CHANCES_BASETHEME_TEMPLATE_URL . '/dist/css/frontend.min.css', [], CHANCES_BASETHEME_VERSION );
+	wp_enqueue_style( 'frontend', CERIUM_TEMPLATE_URL . '/dist/css/frontend.min.css', [], CERIUM_VERSION );
 }
 
 /**
@@ -148,73 +147,12 @@ function acf_map_api( $api ) {
 	return $api;
 }
 
-/**
- * Register the required plugins for this theme.
- *
- * @link http://tgmpluginactivation.com/configuration/
- */
-function plugins() {
-	$plugins = [
-		[
-			'name'             => 'Advaced Custom Fields Pro',
-			'slug'             => 'advanced-custom-fields-pro',
-			'source'           => 'https://bitbucket.org/snapshotinteractive/wp-required-plugins/raw/master/advanced-custom-fields-pro.zip',
-			'required'         => true,
-			'version'          => '5.6.10',
-			'force_activation' => true,
-		],
-		[
-			'name'     => 'Safe SVG',
-			'slug'     => 'safe-svg',
-			'required' => true,
-		],
-		[
-			'name'     => 'Akismet',
-			'slug'     => 'akismet',
-			'required' => false,
-		],
-		[
-			'name'     => 'Contact Form 7',
-			'slug'     => 'contact-form-7',
-			'required' => false,
-		],
-		[
-			'name'     => 'SendGrid',
-			'slug'     => 'sendgrid-email-delivery-simplified',
-			'required' => false,
-		],
-		[
-			'name'     => 'Yoast SEO',
-			'slug'     => 'wordpress-seo',
-			'required' => false,
-		],
-		[
-			'name'     => 'ACF Content Analysis for Yoast SEO',
-			'slug'     => 'acf-content-analysis-for-yoast-seo',
-			'required' => false,
-		],
-		[
-			'name'     => 'Flamingo',
-			'slug'     => 'flamingo',
-			'required' => false,
-		],
-		[
-			'name'     => 'WP Migrate DB',
-			'slug'     => 'wp-migrate-db',
-			'required' => false,
-		],
-	];
-
-	$config = [ 'is_automatic' => true ];
-	tgmpa( $plugins, $config );
-}
-
 // Add ACF options page.
 if ( function_exists( 'acf_add_options_page' ) ) {
 
 	acf_add_options_page( [
-		'page_title' => __( 'Theme Settings', 'chances-basetheme' ),
-		'menu_title' => __( 'Theme Settings', 'chances-basetheme' ),
+		'page_title' => __( 'Theme Settings', 'cerium' ),
+		'menu_title' => __( 'Theme Settings', 'cerium' ),
 		'menu_slug'  => 'theme-general-settings',
 		'capability' => 'edit_posts',
 		'redirect'   => false,

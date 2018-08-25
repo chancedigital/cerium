@@ -7,7 +7,7 @@ $foundation-palette: (
 	warning: #edac2c,
 	alert: #dc5c3a,
 );
-$tertiary-color: map-get($foundation-palette, tertiary);
+$tertiary-color: map-get( $foundation-palette, tertiary );
 $black: #2c2c2c;
 
 // Fonts and text styles

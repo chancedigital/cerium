@@ -1,7 +1,7 @@
-WordPress Basetheme
+Cerium
 =====================
 
-This starter theme was inspired by (and large chunks of it just plain stolen from) a few great sources that deserve credit:
+Cerium is a WordPress starter theme inspired by (and large chunks of it just plain stolen from) a few great sources that deserve credit:
 
 * [Theme Scaffold](https://github.com/10up/theme-scaffold) by [10up](https://10up.com/)
 * [FoundationPress](https://github.com/olefredrik/FoundationPress/) by [olefredrik](https://github.com/olefredrik/)
@@ -12,21 +12,21 @@ This starter theme was inspired by (and large chunks of it just plain stolen fro
 1. [Node & NPM](https://www.npmjs.com/get-npm) - Build packages and 3rd party dependencies are managed through NPM, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v8.11.
 2. [Gulp](https://gulpjs.com/) - Gulp is used as the main task runner. it runs Sass, PostCSS, processes images/SVG files, and executes Webpack.
 3. [Webpack](https://webpack.js.org/) - Webpack is used to process the JavaScript.
-4. [Composer]() - Install and manage PHP dependencies.
+4. [Composer](https://getcomposer.org/) - Install and manage PHP dependencies.
 
 ## Getting Started
 
 ### Get Started
 Eventually I will work up a CLI tool to quickly setup and deploy new projects with the theme. For now, start by setting up a local install of WordPress and cloning this repo into `wp-content/themes`. Then:
-* Rename `chances-basetheme` to your project name.
-	* I recommend using something short but unique. Always use a unique prefix (I use `chances`) to prevent potential conflicts with themes in the WP.org repo (e.g., `chances-clientname`).
+* Rename `cerium` to your project name.
+	* I recommend using something short but unique. You may also consider using a unique prefix to prevent potential conflicts with themes in the WP.org repo, especially if you aren't strict about namespacing (e.g., `chances-clientname`).
 * Do case-sensitive search/replace for the following to match the slug chosen for your theme directory:
-	* **CHANCES_BASETHEME** (e.g., CS_CLIENT_NAME)
-	* **Chances\\\\WordPressBasetheme** (e.g., Client_Name\\\\Project or Client_Name)
-	* **Chances\\WordPressBasetheme** (e.g., Client_Name\\Project or Client_Name)
-	* **chances-basetheme** (e.g., cs-client-name)
-	* **chances_basetheme** (e.g., chances_basetheme_client_name)
-	* **Chances Basetheme** (e.g., Client Name)
+	* **CERIUM** (e.g., PROJECT_NAME)
+	* **ChanceDigital\\Cerium** (e.g., Client_Name\\Project_Name)
+	* **cerium-** (e.g., project-name-)
+	* **cerium_** (e.g., project_name_)
+	* **cerium** (e.g., project-name)
+	* **Cerium** (e.g., Project Name)
 * From the theme directory, run `npm run start` to begin development.
 
 ## Commands
@@ -52,7 +52,7 @@ I welcome pull requests and spirited, but respectful, debates. One goal of mine 
 ## Theme Features
 
 ### Linting
-I have configured linting tools to conform to the WordPress coding standards with some minor variance. I recommend installing `stylelint`, `eslint` and `phpcs` and the corresponding WP standards globally, but each will also be installed as project dependencies with the theme. You'll also want to install a few exntensions for your editor to make these standards easier to follow.
+I have configured linting tools to conform to the WordPress coding standards with some minor variance. I recommend installing `sass-lint`, `eslint` and `phpcs` and the corresponding WP standards globally, but each will also be installed as project dependencies with the theme. You'll also want to install a few exntensions for your editor to make these standards easier to follow.
 * **Editor Config** [ [Base package](https://editorconfig.org/) | [Atom](https://github.com/sindresorhus/atom-editorconfig) | [Sublime](https://github.com/sindresorhus/editorconfig-sublime) | [VS Code](https://github.com/editorconfig/editorconfig-vscode) ]
 * **Eslint** [ [Base package](https://github.com/eslint/eslint) | [Atom](https://github.com/AtomLinter/linter-eslint) | [Sublime](https://github.com/SublimeLinter/SublimeLinter-eslint) | [VS Code](https://github.com/Microsoft/vscode-eslint) | [eslint-config-wordpress](https://www.npmjs.com/package/eslint-config-wordpress) ]
 * **Stylelint** [ [Base package](https://github.com/stylelint/stylelint) | [Atom](https://atom.io/packages/linter-stylelint) | [Sublime](https://github.com/SublimeLinter/SublimeLinter-stylelint) | [VS Code](https://github.com/shinnn/vscode-stylelint) | [stylelint-config-wordpress](https://www.npmjs.com/package/stylelint-config-wordpress) ]
@@ -191,8 +191,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 - [PostCSS preset-env](https://www.npmjs.com/package/postcss-preset-env)
 - [Pump](https://www.npmjs.com/package/pump)
 - [Require DIR](https://www.npmjs.com/package/require-dir)
-- [Stylelint](https://www.npmjs.com/package/stylelint)
-- [Stylelint config WordPress](https://www.npmjs.com/package/stylelint-config-wordpress)
+- [Sass Lint](https://www.npmjs.com/package/sass-lint)
 - [Webpack](https://www.npmjs.com/package/webpack)
 - [Webpack CLI](https://www.npmjs.com/package/webpack-cli)
 - [Webpack Stream](https://www.npmjs.com/package/webpack-stream)

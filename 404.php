@@ -6,7 +6,7 @@
 		<div class="medium-7 large-8 cell">
 
 			<main id="main" class="page-404__sidebar">
-				<?php _e( 'This page cannot be found. Please try your search again or go back to the homepage.', 'chances-basetheme' ); // WPCS: XSS Ok. ?>
+				<?php _e( 'This page cannot be found. Please try your search again or go back to the homepage.', 'cerium' ); // WPCS: XSS Ok. ?>
 			</main>
 
 		</div><!-- .cell -->
