@@ -3768,10 +3768,13 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-foundation-sites@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.5.0.tgz#7bd4cb33977cbcb8a1cae5ad32c7c0de0fdbfc71"
-  integrity sha512-iV7+/4GxR4lQKxUh7geY6dxUSKbn6w+vbZzeG8U7JiTqStfPtTS+jaepKymw5OhrmD4BYpshyDktUiEshlY60g==
+foundation-sites@6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.4.3.tgz#ea89eb599badf6f03dd526c51f00bdb942a844f6"
+  integrity sha1-6onrWZut9vA91SbFHwC9uUKoRPY=
+  dependencies:
+    jquery ">=3.0.0"
+    what-input "^4.1.3"
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -5358,7 +5361,7 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-jquery@^3.3.1:
+jquery@>=3.0.0, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
@@ -10170,6 +10173,11 @@ websocket-extensions@>=0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+
+what-input@^4.1.3:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/what-input/-/what-input-4.3.1.tgz#b8ea7554ba1d9171887c4c6addf28185fec3d31d"
+  integrity sha512-7KD71RWNRWI9M08shZ8+n/2UjO5amwsG9PMSXWz0iIlH8H2DVbHE8Z2tW1RqQa0kIwdeqdUIffFz7crDfkcbAw==
 
 what-input@^5.1.2:
   version "5.1.2"
