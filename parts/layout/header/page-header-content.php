@@ -16,7 +16,7 @@ if ( is_404() ) {
 } elseif ( is_page() && get_field( 'alternate_page_title' ) ) {
 	$ceriumtitle = get_field( 'alternate_page_title' );
 } else {
-	$ceriumtitle = get_the_title() . ' ok';
+	$ceriumtitle = get_the_title();
 }
 
 if ( is_page() && get_field( 'page_subtitle' ) ) {
