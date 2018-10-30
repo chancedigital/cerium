@@ -1,5 +1,5 @@
 {
-  "publicPath": "/wp-content/themes/wp-base",
+  "publicPath": "/wp-content/themes/cerium",
   "devUrl": "http://example.test",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]"

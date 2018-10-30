@@ -1,10 +1,10 @@
 // Are you using ES6+?
-const es6 = true;
+const ES6 = true;
 
 // Are you using JSX?
-const jsx = false;
+const JSX = false;
 
-const extendList = [
+const EXTEND_LIST = [
 	'eslint:recommended',
 	'wordpress',
 ];
@@ -13,8 +13,8 @@ const extendList = [
  * JSX packages not included by default.
  * If you are using JSX, be sure to install these plugins in your project.
  */
-if ( jsx ) {
-	extendList.concat( [
+if ( JSX ) {
+	EXTEND_LIST.concat( [
 		'plugin:react/recommended',
 		'plugin:jsx-a11y/recommended',
 		'plugin:jest/recommended',
@@ -23,15 +23,14 @@ if ( jsx ) {
 
 const config = {
 	root: true,
-	parser: 'babel-eslint',
 	env: {
 		node: true,
-		es6: true,
+		es6: ES6,
 		amd: true,
 		browser: true,
 		jquery: true
 	},
-	plugins: es6 ? [ 'import' ] : [],
+	plugins: ES6 ? [ 'import' ] : [],
 
 	/**
 	 * Make sure you have eslint-config-wordpress installed.
@@ -39,7 +38,7 @@ const config = {
 	 * Install using:
 	 * npm install -g eslint-config-wordpress
 	 */
-	extends: extendList,
+	extends: EXTEND_LIST,
 
 	/**
 	 * Default globals.
@@ -182,7 +181,7 @@ const config = {
 		/**
 		 * Deal with duplicate import statements.
 		 */
-		'no-duplicate-imports': es6 ? 'error' : 0,
+		'no-duplicate-imports': ES6 ? 'error' : 0,
 
 		/**
 		 * Discourage mixed operators.
@@ -231,12 +230,12 @@ const config = {
 		/**
 		 * Prefer const to let.
 		 */
-		'prefer-const': es6 ? 'error' : 0,
+		'prefer-const': ES6 ? 'error' : 0,
 
 		/**
 		 * Allow or disallow var declarations.
 		 */
-		'no-var': es6 ? 'warn' : 0,
+		'no-var': ES6 ? 'warn' : 0,
 
 		/**
 		 * Require or disallow space before blocks.
@@ -279,15 +278,13 @@ const config = {
 	}
 };
 
-if ( es6 ) {
+if ( ES6 ) {
 	config.parserOptions = {
 		'ecmaFeatures': {
 			'globalReturn': true,
-			'generators': false,
 			'objectLiteralDuplicateProperties': false,
-			'experimentalObjectRestSpread': true,
 		},
-		'ecmaVersion': 2017,
+		'ecmaVersion': 2018,
 		'sourceType': 'module',
 	};
 	config.settings = {
