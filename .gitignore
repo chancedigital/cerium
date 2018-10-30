@@ -11,6 +11,12 @@ node_modules
 .cache-loader
 /dist
 /vendor
+npm-debug.log
+yarn-error.log
+.vscode
+
+# using yarn
+package-lock.json
 
 # large/disallowed file types
 # a CDN should be used for these

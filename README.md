@@ -22,6 +22,7 @@ Eventually I will work up a CLI tool to quickly setup and deploy new projects wi
 	* I recommend using something short but unique. You may also consider using a unique prefix to prevent potential conflicts with themes in the WP.org repo, especially if you aren't strict about namespacing (e.g., `chances-clientname`).
 * Do case-sensitive search/replace for the following to match the slug chosen for your theme directory:
 	* **CERIUM** (e.g., PROJECT_NAME)
+	* **ChanceDigital\\\\Cerium** (e.g., Client_Name\\\\Project_Name)
 	* **ChanceDigital\\Cerium** (e.g., Client_Name\\Project_Name)
 	* **cerium-** (e.g., project-name-)
 	* **cerium_** (e.g., project_name_)
