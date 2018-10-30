@@ -9,7 +9,7 @@ Cerium is a WordPress starter theme inspired by (and large chunks of it just pla
 
 ## Dependencies
 
-1. [Node & NPM](https://www.npmjs.com/get-npm) - Build packages and 3rd party dependencies are managed through NPM, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v8.11.
+1. [Node & Yarn](https://yarnpkg.com/) - Build packages and 3rd party dependencies are managed through Yarn, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v8.12.
 2. [Gulp](https://gulpjs.com/) - Gulp is used as the main task runner. it runs Sass, PostCSS, processes images/SVG files, and executes Webpack.
 3. [Webpack](https://webpack.js.org/) - Webpack is used to process the JavaScript.
 4. [Composer](https://getcomposer.org/) - Install and manage PHP dependencies.
@@ -28,17 +28,17 @@ Eventually I will work up a CLI tool to quickly setup and deploy new projects wi
 	* **cerium_** (e.g., project_name_)
 	* **cerium** (e.g., project-name)
 	* **Cerium** (e.g., Project Name)
-* From the theme directory, run `npm run start` to begin development.
+* From the theme directory, run `yarn start` to begin development.
 
 ## Commands
 
-`npm run start` (install dependencies and run initial Gulp)
+`yarn start` (install dependencies and run initial Gulp)
 
-`npm run watch` (watch)
+`yarn watch` (watch)
 
-`npm run build` (build all files)
+`yarn build` (build all files)
 
-`npm run deploy` (build all files ready for deployment)
+`yarn deploy` (build all files ready for deployment)
 
 ## Contributing
 
@@ -140,8 +140,8 @@ const routes = new Router( {
 #### 3rd party packages
 Example of how to add 3rd party packages* and have them included in the theme:
 
-1. From the theme directory, add the package using `npm`. So if we're using Slick Carousel:
-	* Run `$ npm i slick-carousel`
+1. From the theme directory, add the package using `yarn`. So if we're using Slick Carousel:
+	* Run `yarn add slick-carousel`
 	* Open up `frontend.js` and `frontend.scss` to add the entry points for the package. If you're using the Slick Carousel then your theme JS and CSS, respectively, would look like:
 
 ```javascript
@@ -167,7 +167,6 @@ $slick-loader-path: "~slick-carousel/slick/";
 - [Babel core](https://www.npmjs.com/package/@babel/core)
 - [Babel preset-env](https://www.npmjs.com/package/@babel/preset-env)
 - [Babel register](https://www.npmjs.com/package/@babel/register)
-- [Babel eslint](https://www.npmjs.com/package/babel-eslint)
 - [Babel loader](https://www.npmjs.com/package/babel-loader)
 - [Babel preset env](https://www.npmjs.com/package/babel-preset-env)
 - [Browserslist](https://www.npmjs.com/package/browserslist)
@@ -190,6 +189,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 - [Lint Staged](https://www.npmjs.com/package/lint-staged)
 - [Node Sass tilde importer](https://www.npmjs.com/package/node-sass-tilde-importer)
 - [PostCSS preset-env](https://www.npmjs.com/package/postcss-preset-env)
+- [Prettier (Automattic fork)](https://github.com/Automattic/wp-prettier.git)
 - [Pump](https://www.npmjs.com/package/pump)
 - [Require DIR](https://www.npmjs.com/package/require-dir)
 - [Sass Lint](https://www.npmjs.com/package/sass-lint)
