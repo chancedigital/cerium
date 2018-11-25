@@ -24,7 +24,6 @@ gulp.task( 'sass', cb => {
 			loadMaps: true,
 		} ),
 		postcss( [
-			require( 'postcss-import' ),
 			require( 'postcss-preset-env' )( { stage: 0 } ),
 		] ),
 		gulp.dest( `${dist}/css` ),
