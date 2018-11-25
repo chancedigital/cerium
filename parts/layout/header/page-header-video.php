@@ -10,13 +10,13 @@
 	<?php
 	while ( have_rows( 'header_background_video' ) ) :
 		the_row();
-		$cerium_video_file_url = get_sub_field( 'video_url' );
-		if ( $cerium_video_file_url && filter_var( $cerium_video_file_url, FILTER_VALIDATE_URL ) ) :
-			$cerium_video_file_ext = pathinfo( wp_parse_url( $cerium_video_file_url )['path'], PATHINFO_EXTENSION );
-			if ( in_array( $cerium_video_file_ext, [ 'mp4', 'webm', 'ogv' ], true ) ) :
+		$video_file_url = get_sub_field( 'video_url' );
+		if ( $video_file_url && filter_var( $video_file_url, FILTER_VALIDATE_URL ) ) :
+			$video_file_ext = pathinfo( wp_parse_url( $video_file_url )['path'], PATHINFO_EXTENSION );
+			if ( in_array( $video_file_ext, [ 'mp4', 'webm', 'ogv' ], true ) ) :
 				?>
 
-				<source src="<?php echo esc_url( $cerium_video_file_url ); ?>" type="video/<?php echo esc_attr( $cerium_video_file_ext ); ?>">
+				<source src="<?php echo esc_url( $video_file_url ); ?>" type="video/<?php echo esc_attr( $video_file_ext ); ?>">
 
 				<?php
 			endif;
