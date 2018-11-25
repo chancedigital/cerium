@@ -92,6 +92,6 @@
   ],
   "engineStrict": true,
   "engines": {
-    "node": "~8.12"
+    "node": "~11.1"
   }
 }
