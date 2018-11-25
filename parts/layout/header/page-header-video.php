@@ -1,5 +1,11 @@
+<?php
+$poster_url = function_exists( 'get_field' ) && get_field( 'header_background_image' )
+	? get_field( 'header_background_image' )['url']
+	: get_the_post_thumbnail_url();
+?>
+
 <video
-	poster="<?php echo get_field( 'header_background_image' ) ? esc_url( get_field( 'header_background_image' )['url'] ) : esc_url( get_the_post_thumbnail_url() ); ?>"
+	poster="<?php echo esc_url( $poster_url ); ?>"
 	id="js-page-header-video"
 	class="page-header__video"
 	playsinline

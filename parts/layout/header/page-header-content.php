@@ -13,13 +13,13 @@ if ( is_404() ) {
 	$title = __( 'Page not found', 'cerium' );
 } elseif ( is_archive() ) {
 	$title = get_the_archive_title();
-} elseif ( is_page() && get_field( 'alternate_page_title' ) ) {
+} elseif ( function_exists( 'get_field' ) && is_page() && get_field( 'alternate_page_title' ) ) {
 	$title = get_field( 'alternate_page_title' );
 } else {
 	$title = get_the_title();
 }
 
-if ( is_page() && get_field( 'page_subtitle' ) ) {
+if ( function_exists( 'get_field' ) && is_page() && get_field( 'page_subtitle' ) ) {
 	$subtitle = get_field( 'page_subtitle' );
 }
 
