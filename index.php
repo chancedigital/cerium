@@ -13,7 +13,7 @@ get_header();
 
 		<div class="medium-7 large-8 cell">
 
-			<main id="main" class="page-index__sidebar">
+			<main id="main" class="page-index__main">
 				<?php
 				if ( have_posts() ) :
 					while ( have_posts() ) :
