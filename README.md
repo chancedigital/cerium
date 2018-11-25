@@ -9,7 +9,7 @@ Cerium is a WordPress starter theme inspired by (and large chunks of it just pla
 
 ## Dependencies
 
-1. [Node & Yarn](https://yarnpkg.com/) - Build packages and 3rd party dependencies are managed through Yarn, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v8.12.
+1. [Node & Yarn](https://yarnpkg.com/) - Build packages and 3rd party dependencies are managed through Yarn, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v11.1.
 2. [Gulp](https://gulpjs.com/) - Gulp is used as the main task runner. it runs Sass, PostCSS, processes images/SVG files, and executes Webpack.
 3. [Webpack](https://webpack.js.org/) - Webpack is used to process the JavaScript.
 4. [Composer](https://getcomposer.org/) - Install and manage PHP dependencies.
