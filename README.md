@@ -9,7 +9,7 @@ Cerium is a WordPress starter theme inspired by (and large chunks of it just pla
 
 ## Dependencies
 
-1. [Node & Yarn](https://yarnpkg.com/) - Build packages and 3rd party dependencies are managed through Yarn, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v11.1.
+1. [Node & Yarn](https://yarnpkg.com/) - Build packages and 3rd party dependencies are managed through Yarn, so you will need that installed globally. I recommend using [`nvm`](https://github.com/creationix/nvm) to develop with Node v8.12.
 2. [Gulp](https://gulpjs.com/) - Gulp is used as the main task runner. it runs Sass, PostCSS, processes images/SVG files, and executes Webpack.
 3. [Webpack](https://webpack.js.org/) - Webpack is used to process the JavaScript.
 4. [Composer](https://getcomposer.org/) - Install and manage PHP dependencies.
@@ -20,10 +20,11 @@ Cerium is a WordPress starter theme inspired by (and large chunks of it just pla
 Eventually I will work up a CLI tool to quickly setup and deploy new projects with the theme. For now, start by setting up a local install of WordPress and cloning this repo into `wp-content/themes`. Then:
 * Rename `cerium` to your project name.
 	* I recommend using something short but unique. You may also consider using a unique prefix to prevent potential conflicts with themes in the WP.org repo, especially if you aren't strict about namespacing (e.g., `myname-clientname`).
-* Do case-sensitive search/replace for the following to match the slug chosen for your theme directory:
+* Do case-sensitive search/replace for the following to match the slug chosen for your theme directory: (@todo: automate this)
 	* **CERIUM** (e.g., PROJECT_NAME)
 	* **ChanceDigital\\\\Cerium** (e.g., Client_Name\\\\Project_Name)
 	* **ChanceDigital\\Cerium** (e.g., Client_Name\\Project_Name)
+	* **cerium_** (e.g., project_name_)
 	* **cerium** (e.g., project-name)
 	* **Cerium** (e.g., Project Name)
 * From the theme directory, run `yarn start` to begin development.
