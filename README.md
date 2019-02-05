@@ -51,7 +51,7 @@ I welcome pull requests and spirited, but respectful, debates. One goal of mine 
 ## Theme Features
 
 ### Linting
-I have configured linting tools to conform to the WordPress coding standards with some minor variance. I recommend installing `sass-lint`, `eslint` and `phpcs` and the corresponding WP standards globally, but each will also be installed as project dependencies with the theme. You'll also want to install a few exntensions for your editor to make these standards easier to follow.
+I have configured linting tools to conform to the WordPress coding standards with some minor variance. I recommend installing `stylelint`, `eslint` and `phpcs` and the corresponding WP standards globally, but each will also be installed as project dependencies with the theme. You'll also want to install a few exntensions for your editor to make these standards easier to follow.
 * **Editor Config** [ [Base package](https://editorconfig.org/) | [Atom](https://github.com/sindresorhus/atom-editorconfig) | [Sublime](https://github.com/sindresorhus/editorconfig-sublime) | [VS Code](https://github.com/editorconfig/editorconfig-vscode) ]
 * **Eslint** [ [Base package](https://github.com/eslint/eslint) | [Atom](https://github.com/AtomLinter/linter-eslint) | [Sublime](https://github.com/SublimeLinter/SublimeLinter-eslint) | [VS Code](https://github.com/Microsoft/vscode-eslint) | [eslint-config-wordpress](https://www.npmjs.com/package/eslint-config-wordpress) ]
 * **Stylelint** [ [Base package](https://github.com/stylelint/stylelint) | [Atom](https://atom.io/packages/linter-stylelint) | [Sublime](https://github.com/SublimeLinter/SublimeLinter-stylelint) | [VS Code](https://github.com/shinnn/vscode-stylelint) | [stylelint-config-wordpress](https://www.npmjs.com/package/stylelint-config-wordpress) ]
@@ -190,7 +190,6 @@ $slick-loader-path: "~slick-carousel/slick/";
 - [Prettier (Automattic fork)](https://github.com/Automattic/wp-prettier.git)
 - [Pump](https://www.npmjs.com/package/pump)
 - [Require DIR](https://www.npmjs.com/package/require-dir)
-- [Sass Lint](https://www.npmjs.com/package/sass-lint)
 - [Webpack](https://www.npmjs.com/package/webpack)
 - [Webpack CLI](https://www.npmjs.com/package/webpack-cli)
 - [Webpack Stream](https://www.npmjs.com/package/webpack-stream)
