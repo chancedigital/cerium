@@ -31,8 +31,10 @@ export default () => {
 		this.previousTop = currentTop;
 	}, 1, true );
 
-	if ( Foundation.MediaQuery.atLeast( 'medium' ) ) {
+	if ( window.matchMedia( '(min-width: 40em)' ).matches ) {
 		$( window ).scroll( { previousTop: 0 }, handleMasthead );
+
+		// @todo: Rewrite without Foundation event.
 		$( window ).on( 'changed.zf.mediaquery', function( e, newSize, oldSize ) {
 			if ( 'small' === newSize ) {
 				$masthead.removeClass( mastheadStickyClass );

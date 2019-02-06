@@ -1,5 +1,5 @@
 .comment-list {
-	@extend .no-bullet;
+	//
 }
 
 .comment-list ol {
@@ -7,6 +7,5 @@
 }
 
 .comment-form input[ type="submit" ] {
-	@extend .button;
-	@extend .secondary;
+	//
 }

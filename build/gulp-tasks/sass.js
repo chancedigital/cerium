@@ -2,29 +2,37 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
-import pump from 'pump';
 import notify from 'gulp-notify';
+import pump from 'pump';
 import tildeImporter from 'node-sass-tilde-importer';
 import { assets, dist, successMessage } from '../gulp.settings.babel';
 
-gulp.task( 'sass', cb => {
+const task = 'sass';
+
+gulp.task( task, cb => {
 	const fileSrc = [ 'admin', 'editor', 'frontend', 'shared' ].map(
 		file => `${assets}/scss/${file}/${file}.scss`
 	);
 
 	pump( [
 		gulp.src( fileSrc ),
-		sass( {
-			importer: tildeImporter,
-
-			// includePaths: [ nodeModules ]
-		} )
+		sourcemaps.init( { loadMaps: true } ),
+		sass( { importer: tildeImporter } )
 			.on( 'error', sass.logError ),
-		sourcemaps.init( {
-			loadMaps: true,
+		/*
+		eslint-disable
+		phpcs( {
+			bin: `${baseDir}/vendor/bin/phpcs`,
+			standard: 'wp-coding-standards',
+			warningSeverity: 0,
 		} ),
+		phpcs.reporter( 'log' ),
+		eslint-enable
+		*/
 		postcss( [
-			require( 'postcss-preset-env' )( { stage: 0 } ),
+			require( 'postcss-preset-env' )( {
+				stage: 3,
+			} ),
 		] ),
 		gulp.dest( `${dist}/css` ),
 		sourcemaps.write( './', {
@@ -32,7 +40,6 @@ gulp.task( 'sass', cb => {
 				return mapFilePath.replace( '.css.map', '.min.css.map' );
 			},
 		} ),
-		notify( { message: successMessage( 'sass' ), onLast: true } ),
+		notify( { message: successMessage( task ), onLast: true } ),
 	], cb );
-
 } );

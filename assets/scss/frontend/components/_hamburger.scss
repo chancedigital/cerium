@@ -1,17 +1,16 @@
-$hamburger-line-height: 2;
-$hamburger-width: 30;
-$hamburger-margin: 8;
-
 .hamburger {
 	$self: &;
+	$hamburger-line-height: 2;
+	$hamburger-width: 30;
+	$hamburger-margin: 8;
 
 	&__line {
+		display: block;
 		width: #{ $hamburger-width }px;
 		height: #{ $hamburger-line-height }px;
-		background-color: $black;
-		display: block;
 		margin: #{ $hamburger-margin }px auto;
 		transition: all 0.3s ease-in-out;
+		background-color: $black;
 
 		&:nth-child( 1 ) {
 			margin-top: 0;

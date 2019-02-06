@@ -2,15 +2,8 @@
 @import "global/global";
 
 // Import vendor files
-@import "_vendor/foundation";
-
-/**
- * Import npm dependencies
- *
- * Prefix your imports with `~` to grab from node_modules/
- * @see https://github.com/webpack-contrib/sass-loader#imports
- */
-// @import "~some-node-module";
+@import "_vendor/normalize";
+@import "_vendor/slick";
 
 // Project modules
 @import "base/base";

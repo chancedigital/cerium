@@ -1,25 +1,15 @@
 <?php get_header(); ?>
 
-<div class="grid-container">
-	<div class="grid-x grid-padding-x">
+<div class="container">
 
-		<div class="medium-7 large-8 cell">
+	<main id="main" class="page-404__main">
+		<?php _e( 'This page cannot be found. Please try your search again or go back to the homepage.', 'cerium' ); // WPCS: XSS Ok. ?>
+	</main>
 
-			<main id="main" class="page-404__main">
-				<?php _e( 'This page cannot be found. Please try your search again or go back to the homepage.', 'cerium' ); // WPCS: XSS Ok. ?>
-			</main>
+	<aside id="sidebar" class="page-404__sidebar">
+		<?php get_sidebar(); ?>
+	</aside>
 
-		</div><!-- .cell -->
-
-		<div class="medium-5 large-4 cell">
-
-			<aside id="sidebar" class="page-404__sidebar">
-				<?php get_sidebar(); ?>
-			</aside>
-
-		</div><!-- .cell -->
-
-	</div><!-- .grid-x -->
-</div><!-- .grid-container -->
+</div><!-- .container -->
 
 <?php get_footer(); ?>

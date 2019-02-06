@@ -1,11 +1,11 @@
 .masthead {
 	$self: &;
 	position: absolute;
+	z-index: 2;
 	top: 0;
 	width: 100%;
-	transition: 0.2s all ease-in-out;
 	padding: 22px 0;
-	z-index: 2;
+	transition: 0.2s all ease-in-out;
 
 	@include breakpoint( medium ) {
 		position: fixed;
@@ -19,14 +19,14 @@
 	}
 
 	&--sticky {
-		box-shadow: 0 3px 15px 0 rgba( 74, 74, 74, 0.125 );
 		padding: 12px 0;
+		box-shadow: 0 3px 15px 0 rgba( 74, 74, 74, 0.125 );
 	}
 
 	&__hamburger {
 		position: absolute;
-		right: rem-calc( 15 );
 		top: 50%;
+		right: rem-calc( 15 );
 		transform: translateY( -50% );
 
 		@include breakpoint( medium ) {

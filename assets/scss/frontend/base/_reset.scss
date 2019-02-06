@@ -17,6 +17,6 @@ br.hide {
 }
 
 // suppress focus ring on for mouse users
-[ data-whatintent="mouse" ] *:focus {
+[data-whatintent="mouse"] *:focus {
 	outline: none;
 }

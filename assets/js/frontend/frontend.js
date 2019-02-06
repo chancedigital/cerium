@@ -1,6 +1,5 @@
 // Import external dependencies.
 import 'what-input';
-import initFoundation from '../_vendor/_foundation';
 
 // Import local dependencies.
 import Router from '../_util/Router';
@@ -14,9 +13,6 @@ const routes = new Router( {
 	common, // All pages
 	home, // Home page
 } );
-
-// Init Foundation.
-initFoundation();
 
 // Load route events.
 jQuery( document ).ready( () => routes.loadEvents() );

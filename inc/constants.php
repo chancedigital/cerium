@@ -1,7 +1,7 @@
 <?php
 
 // Useful global constants.
-define( 'CERIUM_VERSION', '0.1.0' );
+define( 'CERIUM_VERSION', '0.1.1' );
 define( 'CERIUM_URL', get_stylesheet_directory_uri() );
 define( 'CERIUM_TEMPLATE_URL', get_template_directory_uri() );
 define( 'CERIUM_PATH', get_template_directory() . '/' );
