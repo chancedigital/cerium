@@ -1,7 +1,5 @@
-/**
- * WordPress Generated Classes
- * @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
- */
+/// WordPress Generated Classes
+/// @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
 
 // Media alignment
 .alignnone {
@@ -21,7 +19,7 @@
 	height: auto;
 }
 
-@include breakpoint(medium) {
+@include breakpoint( medium ) {
 
 	.alignleft {
 		float: left;
@@ -36,7 +34,7 @@
 .wp-caption {
 
 	&-text {
-		padding: 2px 6px 4px;
+		padding: rem( 2 ) rem( 6 ) rem( 4 );
 		font-size: 12px;
 		font-style: italic;
 		font-weight: 400;

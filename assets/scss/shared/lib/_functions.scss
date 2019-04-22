@@ -59,6 +59,58 @@
 	@return if( type-of( $map ) != "list", ($value,), $map );
 }
 
+/// Determine if a value is not falsey, in CSS terms.
+/// Falsey values are `null`, `none`, `0` with any unit, or an empty list.
+/// @param {Mixed} $val - Value to check.
+/// @returns {Boolean} `true` if `$val` is not falsey.
+@function has-value( $val ) {
+	@if $val == null or $val == none {
+		@return false;
+	}
+	@if type-of( $val ) == "number" and strip-unit( $val ) == 0 {
+		@return false;
+	}
+	@if type-of( $val ) == "list" and length( $val ) == 0 {
+		@return false;
+	}
+	@return true;
+}
+
+/// Generates a selector with every text input type.
+/// You can also filter the list to only output a subset of those selectors.
+///
+/// @param {List|Keyword} $types [()] - A list of text input types to use.
+///                                     Leave blank to use all of them.
+/// @param {Keyword} $modifier [''] - A modifier to be applied to each text input type
+///                                   (e.g. a class or a pseudo-class). Leave blank to ignore.
+@function text-inputs( $types: (), $modifier: "" ) {
+	$return: ();
+	$all-types:
+		text
+		password
+		date
+		datetime
+		datetime-local
+		month
+		week
+		email
+		number
+		search
+		tel
+		time
+		url
+		color;
+
+	@if not has-value( $types ) {
+		$types: $all-types;
+	}
+
+	@each $type in $types {
+		$return: append( $return, unquote( "input[type=\'#{ $type }\']#{ $modifier }" ), comma );
+	}
+	@return $return;
+}
+
 /// A collection of function for advanced type checking
 /// @author Hugo Giraudel
 /// @link https://css-tricks.com/snippets/sass/advanced-type-checking/

@@ -1,0 +1,19 @@
+/// Utility classes.
+
+// Used to hide break tags in autop situations.
+.hide-breaks br,
+br.hide {
+	display: none;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.srt {
+	@include srt;
+}

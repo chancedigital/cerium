@@ -51,3 +51,84 @@
 	justify-content: $x;
 	align-items: $y;
 }
+
+@mixin text-inputs( $types: (), $modifier: "" ) {
+	#{ text-inputs( $types, $modifier ) } {
+		@content;
+	}
+}
+
+
+/// Typography
+@mixin apply-header-style( $style-map: () ) {
+	@each $prop, $val in $style-map {
+		$value: if( $prop == font-size, rem( $val ), $val );
+		#{ unquote( $prop ) }: #{ if( is-number( $value ), $value, unquote( $value ) ) };
+	}
+}
+
+@mixin style-header( $lvl: h1 ) {
+	@each $size, $headings in $header-styles {
+		$style-map: map-get( $headings, $lvl );
+		@if $size == small {
+			& {
+				@include apply-header-style( $style-map );
+			}
+		} @else if map-has-key( $breakpoints, $size ) {
+			@include breakpoint( $size ) {
+				& {
+					@include apply-header-style( $style-map );
+				}
+			}
+		}
+	}
+}
+
+@mixin style-headers {
+	$all-headings: h1, h2, h3, h4, h5, h6;
+	@each $lvl in $all-headings {
+		#{ $lvl } {
+			@include style-header( $lvl );
+		}
+	}
+}
+
+@mixin font-giant {
+	font-size: rem( 60 );
+}
+
+@mixin font-h1 {
+	@include style-header( h1 );
+}
+
+@mixin font-h2 {
+	@include style-header( h2 );
+}
+
+@mixin font-h3 {
+	@include style-header( h3 );
+}
+
+@mixin font-h4 {
+	@include style-header( h4 );
+}
+
+@mixin font-h5 {
+	@include style-header( h5 );
+}
+
+@mixin font-h6 {
+	@include style-header( h6 );
+}
+
+@mixin font-std {
+	font-size: rem( 16 );
+}
+
+@mixin font-sm {
+	font-size: rem( 14 );
+}
+
+@mixin font-tiny {
+	font-size: rem( 12 );
+}
