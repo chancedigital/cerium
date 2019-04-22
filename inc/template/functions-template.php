@@ -7,7 +7,7 @@
 
 namespace Chance_Digital\Cerium\Template;
 
-add_filter( 'body_class', __NAMESPACE__ . '\\cerium_body_classes' );
+add_filter( 'body_class', __NAMESPACE__ . '\\body_classes' );
 
 /**
  * Filter body classes for pages.
@@ -15,7 +15,7 @@ add_filter( 'body_class', __NAMESPACE__ . '\\cerium_body_classes' );
  * @param  array $classes  Class list.
  * @return array           Modified class list.
  */
-function cerium_body_classes( array $classes ) {
+function body_classes( array $classes ) {
 
 	// Add page slug if it doesn't exist.
 	if ( is_single() || is_page() && ! is_front_page() ) {

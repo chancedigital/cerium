@@ -2,7 +2,7 @@
 /**
  * Autoloader for theme classes.
  *
- * @package pyapc
+ * @package cerium
  */
 
 namespace Chance_Digital\Cerium\Autoload;
