@@ -5,6 +5,10 @@ const config = {
 		jQuery: false,
 		wp: false,
 	},
+	rules: {
+		'no-console': [ 1, { allow: [ 'warn', 'error' ] } ],
+		'no-debugger': 1,
+	},
 };
 
 module.exports = config;
