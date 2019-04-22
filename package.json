@@ -93,6 +93,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "jcf": "^1.2.3",
+    "lodash": "^4.17.11",
     "what-input": "^5.1.1"
   },
   "browserslist": [
