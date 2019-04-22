@@ -22,11 +22,9 @@ foreach ( [
 	'core',
 	'cleanup',
 	'template',
-	'foundation',
 	'images',
 	'icons',
-	'post-types',
-	'taxonomies',
+	'nav',
 ] as $inc ) {
 	$filename = CERIUM_INC . "$inc/$inc.php";
 	if ( file_exists( $filename ) ) {

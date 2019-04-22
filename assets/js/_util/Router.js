@@ -9,7 +9,6 @@ import camelCase from './camelCase';
  * Add additional events for more control over timing e.g. a finalize event
  */
 class Router {
-
 	/**
 	 * Create a new Router
 	 * @param {Object} routes
@@ -25,9 +24,12 @@ class Router {
 	 * @param {string} [arg] Any custom argument to be passed to the event.
 	 */
 	fire( route, event = 'init', arg ) {
-		const fire = '' !== route && this.routes[route] && 'function' === typeof this.routes[route][event];
+		const fire =
+			'' !== route &&
+			this.routes[ route ] &&
+			'function' === typeof this.routes[ route ][ event ];
 		if ( fire ) {
-			this.routes[route][event]( arg );
+			this.routes[ route ][ event ]( arg );
 		}
 	}
 
@@ -41,7 +43,6 @@ class Router {
 	 *  * common finalize
 	 */
 	loadEvents() {
-
 		// Fire common init JS.
 		this.fire( 'common' );
 
@@ -51,7 +52,7 @@ class Router {
 			.replace( /-/g, '_' )
 			.split( /\s+/ )
 			.map( camelCase )
-			.forEach( ( className ) => {
+			.forEach( className => {
 				this.fire( className );
 				this.fire( className, 'finalize' );
 			} );

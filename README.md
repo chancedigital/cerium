@@ -4,7 +4,6 @@ Cerium
 Cerium is a WordPress starter theme inspired by (and large chunks of it just plain stolen from) a few great sources that deserve credit:
 
 * [Theme Scaffold](https://github.com/10up/theme-scaffold) by [10up](https://10up.com/)
-* [FoundationPress](https://github.com/olefredrik/FoundationPress/) by [olefredrik](https://github.com/olefredrik/)
 * [Sage](https://github.com/roots/sage/) by [Roots](https://roots.io/)
 
 ## Dependencies
@@ -94,7 +93,7 @@ More than one page-specific route might can a given page. For example, if you re
 
 To add scripts to an existing route, add the desired JavaScript within the route's `init()` or `finalize()` methods. For example, the `init()` method on the `common` route might contain the code needed to toggle your site's menu when its icon is clicked.
 
-Because all routes run after the browser has fired the DOM load event, you do not need to wrap the code in your routes within an event handler that watches for that event (e.g., `jQuery(document).ready()`).
+Because all routes run after the browser has fired the DOM load event, you do not need to wrap the code in your routes within an event handler that watches for that event (e.g., `jQuery( document ).ready()`).
 
 #### Adding a new route
 As an example, let's add a route that runs when a page with the default template is viewed. The class for this page is `page-template-default`, so our route will be named `pageTemplateDefault`.
@@ -160,37 +159,3 @@ $slick-font-path: "~slick-carousel/slick/fonts/";
 // Slick Carousel ajax-loader.gif path
 $slick-loader-path: "~slick-carousel/slick/";
 ```
-
-## Learn more about the default packages used with this project
-
-- [Babel core](https://www.npmjs.com/package/@babel/core)
-- [Babel preset-env](https://www.npmjs.com/package/@babel/preset-env)
-- [Babel register](https://www.npmjs.com/package/@babel/register)
-- [Babel loader](https://www.npmjs.com/package/babel-loader)
-- [Babel preset env](https://www.npmjs.com/package/babel-preset-env)
-- [Browserslist](https://www.npmjs.com/package/browserslist)
-- [Can I Use DB](https://www.npmjs.com/package/caniuse-db)
-- [Date Format](https://www.npmjs.com/package/dateformat)
-- [Del](https://www.npmjs.com/package/del)
-- [Eslint](https://www.npmjs.com/package/eslint)
-- [Eslint config WordPress](https://www.npmjs.com/package/eslint-config-wordpress)
-- [Eslint loader](https://www.npmjs.com/package/eslint-loader)
-- [Gulp](https://www.npmjs.com/package/gulp)
-- [Gulp CSSNano](https://www.npmjs.com/package/gulp-cssnano)
-- [Gulp filter](https://www.npmjs.com/package/gulp-filter)
-- [Gulp Live Reload](https://www.npmjs.com/package/gulp-livereload)
-- [Gulp PostCSS](https://www.npmjs.com/package/gulp-postcss)
-- [Gulp Rename](https://www.npmjs.com/package/gulp-rename)
-- [Gulp Sass](https://www.npmjs.com/package/gulp-sass)
-- [Gulp Sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
-- [Gulp Zip](https://www.npmjs.com/package/gulp-zip)
-- [Husky](https://www.npmjs.com/package/husky)
-- [Lint Staged](https://www.npmjs.com/package/lint-staged)
-- [Node Sass tilde importer](https://www.npmjs.com/package/node-sass-tilde-importer)
-- [PostCSS preset-env](https://www.npmjs.com/package/postcss-preset-env)
-- [Prettier (Automattic fork)](https://github.com/Automattic/wp-prettier.git)
-- [Pump](https://www.npmjs.com/package/pump)
-- [Require DIR](https://www.npmjs.com/package/require-dir)
-- [Webpack](https://www.npmjs.com/package/webpack)
-- [Webpack CLI](https://www.npmjs.com/package/webpack-cli)
-- [Webpack Stream](https://www.npmjs.com/package/webpack-stream)

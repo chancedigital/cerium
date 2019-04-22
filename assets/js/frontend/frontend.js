@@ -9,12 +9,10 @@ import common from './routes/common';
 import home from './routes/home';
 
 // Populate Router instance with DOM routes.
-const routes = new Router(
-	{
-		common, // All pages
-		home, // Home page
-	}
-);
+const routes = new Router( {
+	common, // All pages
+	home, // Home page
+} );
 
 // Load route events.
 jQuery( document ).ready( () => routes.loadEvents() );
