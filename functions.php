@@ -26,7 +26,7 @@ foreach ( [
 	'icons',
 	'nav',
 ] as $inc ) {
-	$filename = CERIUM_INC . "$inc/$inc.php";
+	$filename = CERIUM_INC . "$inc/functions-$inc.php";
 	if ( file_exists( $filename ) ) {
 		require_once $filename;
 	}
