@@ -1,11 +1,13 @@
 import path from 'path';
 
-const baseDir      = path.resolve( __dirname, '../' );
-const nodeModules  = path.resolve( __dirname, '../node_modules' );
-const assets       = path.resolve( __dirname, '../assets' );
-const dist         = path.resolve( __dirname, '../dist' );
-const themeName    = 'cerium';
-const publicPath   = `/wp-content/themes/${themeName}/${path.basename( dist )}/`;
+const baseDir = path.resolve( __dirname, '../' );
+const nodeModules = path.resolve( __dirname, '../node_modules' );
+const assets = path.resolve( __dirname, '../assets' );
+const dist = path.resolve( __dirname, '../dist' );
+const themeName = 'cerium';
+const publicPath = `/wp-content/themes/${ themeName }/${ path.basename(
+	dist,
+) }/`;
 
 module.exports = {
 	themeName,
@@ -34,18 +36,8 @@ module.exports = {
 		'!**/package-lock.json',
 		'!**/yarn-lock.json',
 	],
-	successMessage: task => `TASK: "${task}" Completed! 💯`,
-	jsFiles: [
-		'admin',
-		'editor',
-		'frontend',
-		'shared',
-	],
-	scssFiles: [
-		'admin',
-		'editor',
-		'frontend',
-		'shared',
-	],
+	successMessage: task => `TASK: "${ task }" Completed! 💯`,
+	jsFiles: [ 'admin', 'editor', 'frontend', 'shared' ],
+	scssFiles: [ 'admin', 'editor', 'frontend', 'shared' ],
 	mode: process.env.NODE_ENV || 'production',
 };

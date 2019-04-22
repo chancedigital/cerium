@@ -17,15 +17,27 @@ gulp.task( 'watch', () => {
 	process.env.NODE_ENV = 'development';
 
 	// livereload.listen( { basePath: 'dist' } );
-	gulp.watch( `../${path.basename( assets )}/scss/**/*`, gulp.series( 'cssProcess' ) );
-	gulp.watch( `../${path.basename( assets )}/js/**/*`, gulp.series( 'jsProcess' ) );
-	gulp.watch( `../${path.basename( assets )}/img/**/*`, gulp.series( 'imageProcess' ) );
+	gulp.watch(
+		`../${ path.basename( assets ) }/scss/**/*`,
+		gulp.series( 'cssProcess' ),
+	);
+	gulp.watch(
+		`../${ path.basename( assets ) }/js/**/*`,
+		gulp.series( 'jsProcess' ),
+	);
+	gulp.watch(
+		`../${ path.basename( assets ) }/img/**/*`,
+		gulp.series( 'imageProcess' ),
+	);
 } );
 
-gulp.task( 'default', gulp.parallel( 'copyProcess', 'cssProcess', gulp.series(
-	'webpack',
-	'images',
-	'watch',
-) ) );
+gulp.task(
+	'default',
+	gulp.parallel(
+		'copyProcess',
+		'cssProcess',
+		gulp.series( 'webpack', 'images', 'watch' ),
+	),
+);
 
 gulp.task( 'build', gulp.series( 'set-prod-node-env', 'default' ) );

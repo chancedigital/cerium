@@ -11,15 +11,15 @@ const task = 'sass';
 
 gulp.task( task, cb => {
 	const fileSrc = [ 'admin', 'editor', 'frontend', 'shared' ].map(
-		file => `${assets}/scss/${file}/${file}.scss`
+		file => `${ assets }/scss/${ file }/${ file }.scss`,
 	);
 
-	pump( [
-		gulp.src( fileSrc ),
-		sourcemaps.init( { loadMaps: true } ),
-		sass( { importer: tildeImporter } )
-			.on( 'error', sass.logError ),
-		/*
+	pump(
+		[
+			gulp.src( fileSrc ),
+			sourcemaps.init( { loadMaps: true } ),
+			sass( { importer: tildeImporter } ).on( 'error', sass.logError ),
+			/*
 		eslint-disable
 		phpcs( {
 			bin: `${baseDir}/vendor/bin/phpcs`,
@@ -29,17 +29,19 @@ gulp.task( task, cb => {
 		phpcs.reporter( 'log' ),
 		eslint-enable
 		*/
-		postcss( [
-			require( 'postcss-preset-env' )( {
-				stage: 3,
+			postcss( [
+				require( 'postcss-preset-env' )( {
+					stage: 3,
+				} ),
+			] ),
+			gulp.dest( `${ dist }/css` ),
+			sourcemaps.write( './', {
+				mapFile: function( mapFilePath ) {
+					return mapFilePath.replace( '.css.map', '.min.css.map' );
+				},
 			} ),
-		] ),
-		gulp.dest( `${dist}/css` ),
-		sourcemaps.write( './', {
-			mapFile: function( mapFilePath ) {
-				return mapFilePath.replace( '.css.map', '.min.css.map' );
-			},
-		} ),
-		notify( { message: successMessage( task ), onLast: true } ),
-	], cb );
+			notify( { message: successMessage( task ), onLast: true } ),
+		],
+		cb,
+	);
 } );

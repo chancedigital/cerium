@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import { assets, dist, jsFiles, publicPath, mode } from './gulp.settings.babel';
 
 const entry = jsFiles.reduce( ( acc, file ) => {
-	acc[file] = `./js/${file}/${file}.js`; // ex: /js/frontend/frontend.js
+	acc[ file ] = `./js/${ file }/${ file }.js`; // ex: /js/frontend/frontend.js
 	return acc;
 }, {} );
 
@@ -36,9 +36,7 @@ const config = {
 			},
 		],
 	},
-	plugins: [
-		new webpack.NoEmitOnErrorsPlugin(),
-	],
+	plugins: [ new webpack.NoEmitOnErrorsPlugin() ],
 	stats: {
 		colors: true,
 		warnings: false,

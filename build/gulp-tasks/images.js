@@ -6,7 +6,7 @@ import notify from 'gulp-notify';
 
 gulp.task( 'images', function() {
 	return gulp
-		.src( `${assets}/img/**/*` )
+		.src( `${ assets }/img/**/*` )
 		.pipe(
 			cache(
 				imagemin( [
@@ -16,9 +16,9 @@ gulp.task( 'images', function() {
 					imagemin.svgo( {
 						plugins: [ { removeViewBox: true }, { cleanupIDs: false } ],
 					} ),
-				] )
-			)
+				] ),
+			),
 		)
-		.pipe( gulp.dest( `${dist}/img` ) )
+		.pipe( gulp.dest( `${ dist }/img` ) )
 		.pipe( notify( { message: successMessage( 'images' ), onLast: true } ) );
 } );

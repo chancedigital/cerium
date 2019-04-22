@@ -9,32 +9,35 @@ import { dist } from '../gulp.settings.babel';
 // import livereload from 'gulp-livereload';
 
 gulp.task( 'cssnano', cb => {
-	const fileDest = `${dist}/css`,
-		fileSrc = [
-			`${dist}/css/*.css`,
+	const fileDest = `${ dist }/css`,
+		fileSrc = [ `${ dist }/css/*.css` ],
+		taskOpts = [
+			cssnano( {
+				autoprefixer: false,
+				calc: {
+					precision: 8,
+				},
+				zindex: false,
+				convertValues: true,
+			} ),
+		];
+
+	pump(
+		[
+			gulp.src( fileSrc ),
+			sourcemaps.init( {
+				loadMaps: true,
+			} ),
+			cssnano( taskOpts ),
+			rename( function( path ) {
+				path.extname = '.min.css';
+			} ),
+			sourcemaps.write( './' ),
+			gulp.dest( fileDest ),
+			filter( '**/*.css' ),
+
+			// livereload(),
 		],
-		taskOpts = [ cssnano( {
-			autoprefixer: false,
-			calc: {
-				precision: 8,
-			},
-			zindex: false,
-			convertValues: true,
-		} ) ];
-
-	pump( [
-		gulp.src( fileSrc ),
-		sourcemaps.init( {
-			loadMaps: true,
-		} ),
-		cssnano( taskOpts ),
-		rename( function( path ) {
-			path.extname = '.min.css';
-		} ),
-		sourcemaps.write( './' ),
-		gulp.dest( fileDest ),
-		filter( '**/*.css' ),
-
-		// livereload(),
-	], cb );
+		cb,
+	);
 } );
