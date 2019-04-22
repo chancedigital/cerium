@@ -20,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 
-<?php do_action( 'after_body' ); // WPCS: prefix ok. ?>
+<?php do_action( 'after_body' ); ?>
 
 <div id="js-site-wrapper" class="site-wrapper">
 	<?php get_template_part( 'parts/layout/header/masthead' ); ?>

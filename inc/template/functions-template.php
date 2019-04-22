@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium\Template;
+namespace Chance_Digital\Cerium\Template;
 
 add_filter( 'body_class', __NAMESPACE__ . '\\cerium_body_classes' );
 
@@ -26,8 +26,10 @@ function cerium_body_classes( array $classes ) {
 	}
 
 	// Clean up class names for custom templates.
-	$classes = array_map( function ( $class ) {
-		return preg_replace( [ '/(-php)?$/', '/^templates/', '/^page-templates/' ], '', $class );
-	}, $classes );
+	$classes = array_map(
+		function ( $class ) {
+				return preg_replace( [ '/(-php)?$/', '/^templates/', '/^page-templates/' ], '', $class );
+		}, $classes
+	);
 	return array_filter( $classes );
 }

@@ -2,9 +2,9 @@ export default ( func, wait, immediate ) => {
 	let timeout;
 	return function() {
 		const context = this;
-		const args = arguments;
-		const later = () => {
-			timeout = null;
+		const args    = arguments;
+		const later   = () => {
+			timeout   = null;
 			if ( ! immediate ) {
 				func.apply( context, args );
 			}

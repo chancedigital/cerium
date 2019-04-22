@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium\Nav;
+namespace Chance_Digital\Cerium\Nav;
 
 if ( ! defined( 'WPINC' ) ) {
 	exit;
@@ -59,9 +59,11 @@ class Walker_Nav_Menu_Bem extends \Walker_Nav_Menu {
 			$classes[] = "{$block}__{$element}--l{$lvl}";
 
 			// Filter out the WP generated classes.
-			$classes = array_filter( $classes, function( $item ) {
-				return ! ( strpos( $item, 'menu-item' ) === 0 );
-			} );
+			$classes = array_filter(
+				$classes, function( $item ) {
+					return ! ( strpos( $item, 'menu-item' ) === 0 );
+				}
+			);
 
 		} else {
 			$classes[] = 'menu-item-' . $item->ID;

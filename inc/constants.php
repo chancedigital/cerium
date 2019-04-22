@@ -8,4 +8,4 @@ define( 'CERIUM_PATH', get_template_directory() . '/' );
 define( 'CERIUM_INC', CERIUM_PATH . 'inc/' );
 define( 'CERIUM_IMG_PATH', CERIUM_PATH . 'dist/img/' );
 define( 'CERIUM_IMG_URL', CERIUM_TEMPLATE_URL . '/dist/img' );
-define( 'CERIUM_NAMESPACE', 'ChanceDigital\\Cerium' );
+define( 'CERIUM_NAMESPACE', 'Chance_Digital\\Cerium' );

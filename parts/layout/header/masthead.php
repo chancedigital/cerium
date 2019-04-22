@@ -5,14 +5,16 @@
 		</div>
 		<div class="masthead__nav-wrapper">
 			<?php
-			wp_nav_menu( [
-				'menu_class'      => 'topnav__menu',
-				'container'       => 'nav',
-				'container_id'    => 'js-topnav',
-				'container_class' => 'topnav',
-				'theme_location'  => 'main-navigation',
-				'walker'          => new ChanceDigital\Cerium\Nav\Walker_Nav_Menu_Bem(),
-			] );
+			wp_nav_menu(
+				[
+					'menu_class'      => 'topnav__menu',
+					'container'       => 'nav',
+					'container_id'    => 'js-topnav',
+					'container_class' => 'topnav',
+					'theme_location'  => 'main-navigation',
+					'walker'          => new Chance_Digital\Cerium\Nav\Walker_Nav_Menu_Bem(),
+				]
+			);
 			?>
 			<button id="js-topnav-toggle" class="masthead__hamburger">
 				<?php get_template_part( 'parts/components/hamburger' ); ?>

@@ -5,7 +5,7 @@
  * @package pyapc
  */
 
-namespace ChanceDigital\Cerium\Autoload;
+namespace Chance_Digital\Cerium\Autoload;
 
 spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 

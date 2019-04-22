@@ -6,10 +6,10 @@ export default class Example extends Component {
 		this.state = { active: true };
 	}
 	render() {
-		const { active } = this.state;
+		const { active }    = this.state;
 		return (
-			<div className={ active ? 'example active' : 'example' }>
-				<p>Amazing component.</p>
+			<div className = { active ? 'example active' : 'example' } >
+				<p> Amazing component.</p>
 			</div>
 		);
 	}

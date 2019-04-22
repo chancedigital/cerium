@@ -3,7 +3,7 @@
 <div class="container">
 
 	<main id="main" class="page-404__main">
-		<?php _e( 'This page cannot be found. Please try your search again or go back to the homepage.', 'cerium' ); // WPCS: XSS Ok. ?>
+		<?php esc_html_e( 'This page cannot be found. Please try your search again or go back to the homepage.', 'cerium' ); ?>
 	</main>
 
 	<aside id="sidebar" class="page-404__sidebar">

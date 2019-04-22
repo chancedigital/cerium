@@ -1,7 +1,6 @@
 import debounce from '../../../_util/debounce';
 
 export default () => {
-
 	const els = {
 		$masthead: $( '#js-masthead' ),
 		$topNav: $( '#js-topnav' ),
@@ -11,25 +10,28 @@ export default () => {
 
 	// Sticky header class.
 	const stickyFlag = 'sticky';
-	const mastheadStickyClass = `masthead--${stickyFlag}`;
-	const topNavStickyClass = `topnav--${stickyFlag}`;
+	const mastheadStickyClass = `masthead--${ stickyFlag }`;
+	const topNavStickyClass = `topnav--${ stickyFlag }`;
 
-	const handleMasthead = debounce( function( e ) {
+	const handleMasthead = debounce(
+		function( e ) {
+			// Set current top position.
+			const currentTop = $( window ).scrollTop();
 
-		// Set current top position.
-		const currentTop = $( window ).scrollTop();
+			if ( mastheadHeight * 2 < e.currentTarget.scrollY ) {
+				$masthead.addClass( mastheadStickyClass );
+				$topNav.addClass( topNavStickyClass );
+			} else {
+				$masthead.removeClass( mastheadStickyClass );
+				$topNav.removeClass( topNavStickyClass );
+			}
 
-		if ( mastheadHeight * 2 < e.currentTarget.scrollY ) {
-			$masthead.addClass( mastheadStickyClass );
-			$topNav.addClass( topNavStickyClass );
-		} else {
-			$masthead.removeClass( mastheadStickyClass );
-			$topNav.removeClass( topNavStickyClass );
-		}
-
-		// Set previous top position to starting current position.
-		this.previousTop = currentTop;
-	}, 1, true );
+			// Set previous top position to starting current position.
+			this.previousTop = currentTop;
+		},
+		1,
+		true,
+	);
 
 	if ( window.matchMedia( '(min-width: 40em)' ).matches ) {
 		$( window ).scroll( { previousTop: 0 }, handleMasthead );

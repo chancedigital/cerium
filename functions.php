@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium;
+namespace Chance_Digital\Cerium;
 
 // Constants
 require_once __DIR__ . '/inc/constants.php';

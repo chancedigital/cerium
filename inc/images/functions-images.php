@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium\Images;
+namespace Chance_Digital\Cerium\Images;
 
 add_filter( 'post_thumbnail_html', __NAMESPACE__ . '\\remove_thumbnail_dimensions', 10, 3 );
 

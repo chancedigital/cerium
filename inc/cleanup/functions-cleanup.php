@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium\Cleanup;
+namespace Chance_Digital\Cerium\Cleanup;
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\start_cleanup' );
 

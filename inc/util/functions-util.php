@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium\Util;
+namespace Chance_Digital\Cerium\Util;
 
 /**
  * Checks if an array is multidimensional.

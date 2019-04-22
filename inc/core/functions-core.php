@@ -5,7 +5,7 @@
  * @package cerium
  */
 
-namespace ChanceDigital\Cerium\Core;
+namespace Chance_Digital\Cerium\Core;
 
 /**
  * Set up theme defaults and register supported WordPress features.
@@ -45,13 +45,15 @@ function theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'custom-logo' );
 	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'html5', [
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	] );
+	add_theme_support(
+		'html5', [
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		]
+	);
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	// Additional theme support for woocommerce 3.0.+
@@ -72,12 +74,14 @@ function theme_setup() {
 	add_editor_style( CERIUM_TEMPLATE_URL . '/dist/css/editor.min.css' );
 
 	// Register nav menus.
-	register_nav_menus( [
-		'main-navigation'      => __( 'Main Navigation', 'cerium' ),
-		'secondary-navigation' => __( 'Secondary Navigation', 'cerium' ),
-		'footer-navigation'    => __( 'Footer Navigation', 'cerium' ),
-		'social'               => __( 'Social Navigation', 'cerium' ),
-	] );
+	register_nav_menus(
+		[
+			'main-navigation'      => __( 'Main Navigation', 'cerium' ),
+			'secondary-navigation' => __( 'Secondary Navigation', 'cerium' ),
+			'footer-navigation'    => __( 'Footer Navigation', 'cerium' ),
+			'social'               => __( 'Social Navigation', 'cerium' ),
+		]
+	);
 }
 
 /**
@@ -100,9 +104,11 @@ function scripts() {
 
 	// Frontend JS.
 	wp_register_script( 'frontend', CERIUM_TEMPLATE_URL . '/dist/js/frontend.min.js', [], CERIUM_VERSION, true );
-	wp_localize_script( 'frontend', 'csAjax', [
-		'ajaxUrl' => esc_url( admin_url( 'admin-ajax.php' ) ),
-	] );
+	wp_localize_script(
+		'frontend', 'csAjax', [
+			'ajaxUrl' => esc_url( admin_url( 'admin-ajax.php' ) ),
+		]
+	);
 	wp_enqueue_script( 'frontend' );
 
 	// Add the comment-reply library on pages where it is necessary.
@@ -125,14 +131,16 @@ function styles() {
  */
 function widgets() {
 
-	register_sidebar( [
-		'name'          => 'Main sidebar',
-		'id'            => 'main-sidebar',
-		'before_widget' => '<div class="sidebar__wrapper">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="sidebar__heading">',
-		'after_title'   => '</h3>',
-	] );
+	register_sidebar(
+		[
+			'name'          => 'Main sidebar',
+			'id'            => 'main-sidebar',
+			'before_widget' => '<div class="sidebar__wrapper">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="sidebar__heading">',
+			'after_title'   => '</h3>',
+		]
+	);
 }
 
 /**
@@ -150,11 +158,13 @@ function acf_map_api( $api ) {
 // Add ACF options page.
 if ( function_exists( 'acf_add_options_page' ) ) {
 
-	acf_add_options_page( [
-		'page_title' => __( 'Theme Settings', 'cerium' ),
-		'menu_title' => __( 'Theme Settings', 'cerium' ),
-		'menu_slug'  => 'theme-general-settings',
-		'capability' => 'edit_posts',
-		'redirect'   => false,
-	] );
+	acf_add_options_page(
+		[
+			'page_title' => __( 'Theme Settings', 'cerium' ),
+			'menu_title' => __( 'Theme Settings', 'cerium' ),
+			'menu_slug'  => 'theme-general-settings',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+		]
+	);
 }
