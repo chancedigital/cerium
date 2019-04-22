@@ -3320,15 +3320,10 @@ escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-chancedigital@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/eslint-config-chancedigital/-/eslint-config-chancedigital-0.1.4.tgz#4b5b4373a0a5f6a97566fc2b9760fbe691cfc89a"
-  integrity sha512-ACdABWZPrrVn6e/pcAmhePXDe7mQiakMknyEjhS2lZvK9ki4KxTLI2zvmPDqwhwWldJ8WzW8qadWR8NnIdhtrw==
-
-eslint-config-wpcalypso@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-wpcalypso/-/eslint-config-wpcalypso-4.0.1.tgz#f0f8a8b999e5236e628045b3402d3c4433363507"
-  integrity sha512-/MdCPOQusYRJI57/GFNi523CW75CUIoqKEY+8XhDtkz0iSeFXl12c2hW2l4ezE0cDbhMUwSslI07YpSPW7nRgA==
+eslint-config-chancedigital@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/eslint-config-chancedigital/-/eslint-config-chancedigital-0.1.6.tgz#68544c3b79fc2dbdafd5a30398887af5f333378b"
+  integrity sha512-14ZwRQIgnuIfe3PNw1oq3aaUQNICOv79AefZb0fihpMpuJBnXpKW3WrVnMMjuqa6OLz2kpqsxoC5ntvAV64bMA==
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
