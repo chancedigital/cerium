@@ -68,7 +68,7 @@
 }
 
 @mixin style-header( $lvl: h1 ) {
-	@each $size, $headings in $header-styles {
+	@each $size, $headings in $heading-styles {
 		$style-map: map-get( $headings, $lvl );
 		@if $size == small {
 			& {
@@ -131,4 +131,9 @@
 
 @mixin font-tiny {
 	font-size: rem( 12 );
+}
+
+@mixin font-smoothing {
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: grayscale;
 }

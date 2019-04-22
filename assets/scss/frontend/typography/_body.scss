@@ -1,0 +1,35 @@
+p {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-size: inherit;
+	line-height: inherit;
+	text-rendering: optimizeLegibility;
+}
+
+ol,
+ul,
+dl {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 1.5em;
+	list-style-position: outside;
+	line-height: inherit;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+	margin-left: 1.25em;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+dl {
+	dt {
+		margin-bottom: 0.25em;
+		font-weight: $fw-bold;
+	}
+}

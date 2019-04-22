@@ -1,1 +1,9 @@
+// Common heading styles first
+@include all-headings {
+	line-height: $heading-line-height;
+	font-weight: $fw-bold;
+	margin-top: 0.667em;
+	margin-bottom: 0.667em;
+}
+
 @include style-headers();
