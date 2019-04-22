@@ -1,4 +1,4 @@
-import camelCase from './camelCase';
+import { camelCase } from 'lodash';
 
 /**
  * DOM-based Routing
@@ -11,7 +11,8 @@ import camelCase from './camelCase';
 class Router {
 	/**
 	 * Create a new Router
-	 * @param {Object} routes
+	 *
+	 * @param {Object} routes List of all routes.
 	 */
 	constructor( routes ) {
 		this.routes = routes;
@@ -19,6 +20,7 @@ class Router {
 
 	/**
 	 * Fire Router events
+	 *
 	 * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
 	 * @param {string} [event] Events on the route. By default, `init` and `finalize` events are called.
 	 * @param {string} [arg] Any custom argument to be passed to the event.
