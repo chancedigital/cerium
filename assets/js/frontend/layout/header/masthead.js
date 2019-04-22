@@ -1,4 +1,4 @@
-import debounce from '../../../_util/debounce';
+import { throttle } from 'lodash';
 
 export default () => {
 	const els = {
@@ -13,38 +13,35 @@ export default () => {
 	const mastheadStickyClass = `masthead--${ stickyFlag }`;
 	const topNavStickyClass = `topnav--${ stickyFlag }`;
 
-	const handleMasthead = debounce(
-		function( e ) {
-			// Set current top position.
-			const currentTop = $( window ).scrollTop();
+	const handleMasthead = throttle( function( e ) {
+		// Set current top position.
+		const currentTop = $( window ).scrollTop();
 
-			if ( mastheadHeight * 2 < e.currentTarget.scrollY ) {
-				$masthead.addClass( mastheadStickyClass );
-				$topNav.addClass( topNavStickyClass );
-			} else {
-				$masthead.removeClass( mastheadStickyClass );
-				$topNav.removeClass( topNavStickyClass );
-			}
+		if ( mastheadHeight * 2 < e.currentTarget.scrollY ) {
+			$masthead.addClass( mastheadStickyClass );
+			$topNav.addClass( topNavStickyClass );
+		} else {
+			$masthead.removeClass( mastheadStickyClass );
+			$topNav.removeClass( topNavStickyClass );
+		}
 
-			// Set previous top position to starting current position.
-			this.previousTop = currentTop;
-		},
-		1,
-		true,
-	);
+		// Set previous top position to starting current position.
+		this.previousTop = currentTop;
+	}, 150 );
 
+	const handleMediaQueryChange = e => {
+		const { newSize, oldSize } = e.detail;
+		if ( 'small' === newSize ) {
+			$masthead.removeClass( mastheadStickyClass );
+			$topNav.removeClass( topNavStickyClass );
+			$( window ).unbind( 'scroll' );
+		} else if ( 'medium' === newSize && 'small' === oldSize ) {
+			$( window ).scroll( { previousTop: 0 }, handleMasthead );
+		}
+	};
+
+	$( window ).on( 'mqChanged', handleMediaQueryChange );
 	if ( window.matchMedia( '(min-width: 40em)' ).matches ) {
 		$( window ).scroll( { previousTop: 0 }, handleMasthead );
-
-		// @todo: Rewrite without Foundation event.
-		$( window ).on( 'changed.zf.mediaquery', function( e, newSize, oldSize ) {
-			if ( 'small' === newSize ) {
-				$masthead.removeClass( mastheadStickyClass );
-				$topNav.removeClass( topNavStickyClass );
-				$( window ).unbind( 'scroll' );
-			} else if ( 'medium' === newSize && 'small' === oldSize ) {
-				$( window ).scroll( { previousTop: 0 }, handleMasthead );
-			}
-		} );
 	}
 };
