@@ -1,6 +1,6 @@
 {
   "name": "cerium",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Project Description",
   "homepage": "https://project-domain.tld",
   "repository": {
@@ -15,10 +15,10 @@
   },
   "scripts": {
     "setup": "yarn && composer install && composer install-codestandards",
-    "start": "yarn && composer install && gulp --gulpfile build/gulpfile.babel.js",
-    "watch": "gulp --gulpfile build/gulpfile.babel.js watch",
-    "build": "NODE_ENV=production gulp --gulpfile build/gulpfile.babel.js",
-    "build:staging": "NODE_ENV=staging gulp --gulpfile build/gulpfile.babel.js",
+    "start": "yarn && composer install && gulp --gulpfile config/gulpfile.babel.js",
+    "watch": "gulp --gulpfile config/gulpfile.babel.js watch",
+    "build": "NODE_ENV=production gulp --gulpfile config/gulpfile.babel.js",
+    "build:staging": "NODE_ENV=staging gulp --gulpfile config/gulpfile.babel.js",
     "dev": "NODE_ENV=development && yarn start",
     "lint-js": "eslint assets/js",
     "format-js": "eslint --fix assets/js"
@@ -48,6 +48,7 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "@chancedigital/eslint-config": "^1.0.5",
+    "@chancedigital/stylelint-config": "^1.0.2",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-inline-json-import": "^0.3.2",

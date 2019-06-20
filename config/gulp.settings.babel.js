@@ -21,7 +21,7 @@ module.exports = {
 		'!**/node_modules/**',
 		'!**/packaged/**',
 		'!**/assets/**',
-		'!**/build/**',
+		'!**/config/**',
 		'!**/.git',
 		'!**/.gitignore',
 		'!**/.editorconfig',
