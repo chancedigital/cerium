@@ -1,0 +1,6 @@
+{
+  "phpcs.enable": true,
+  "stylelint.enable": true,
+  "eslint.enable": true,
+  "typescript.validate.enable": false
+}
