@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import babelConfig from './babel.config';
 import { assets, dist, jsFiles, publicPath, mode } from './gulp.settings.babel';
 
 const entry = jsFiles.reduce( ( acc, file ) => {
@@ -32,7 +33,12 @@ const config = {
 			{
 				test: /\.js$/,
 				exclude: [ '/node_modules/' ],
-				use: [ { loader: 'babel-loader' } ],
+				use: [
+					{
+						loader: 'babel-loader',
+						options: babelConfig,
+					},
+				],
 			},
 		],
 	},
