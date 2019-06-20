@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18d53491d718a195a3176774618f7b94",
+    "content-hash": "f8ada0bc754b3808bf75c4ed8c0f12d1",
     "packages": [],
     "packages-dev": [
         {
             "name": "chancedigital/wp-coding-standards",
-            "version": "v0.3.3",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chancedigital/wp-coding-standards.git",
-                "reference": "902dc0e42cf731390dfd9b4a37ff4455d9b065a4"
+                "reference": "9f2a28fdca38475dc84ce8e4b1dfc6e2426d904b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chancedigital/wp-coding-standards/zipball/902dc0e42cf731390dfd9b4a37ff4455d9b065a4",
-                "reference": "902dc0e42cf731390dfd9b4a37ff4455d9b065a4",
+                "url": "https://api.github.com/repos/chancedigital/wp-coding-standards/zipball/9f2a28fdca38475dc84ce8e4b1dfc6e2426d904b",
+                "reference": "9f2a28fdca38475dc84ce8e4b1dfc6e2426d904b",
                 "shasum": ""
             },
             "require": {
@@ -31,13 +31,13 @@
             "require-dev": {
                 "phpunit/phpunit": "^5.7"
             },
-            "type": "project",
+            "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-3.0-or-later"
             ],
             "description": "Chance Digital coding standards",
-            "time": "2019-04-22T02:16:14+00:00"
+            "time": "2019-06-20T16:32:45+00:00"
         },
         {
             "name": "composer/installers",

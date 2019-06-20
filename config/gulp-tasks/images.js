@@ -1,10 +1,10 @@
 import gulp from 'gulp';
-import { assets, dist, successMessage } from '../gulp.settings.babel';
 import cache from 'gulp-cache';
 import imagemin from 'gulp-imagemin';
 import notify from 'gulp-notify';
+import { assets, dist, successMessage } from '../index';
 
-gulp.task( 'images', function() {
+gulp.task( 'images', () => {
 	return gulp
 		.src( `${ assets }/img/**/*` )
 		.pipe(

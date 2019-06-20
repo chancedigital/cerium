@@ -5,33 +5,27 @@ import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
 import pump from 'pump';
 import tildeImporter from 'node-sass-tilde-importer';
-import { assets, dist, successMessage } from '../gulp.settings.babel';
+import { scssFiles, assets, dist, successMessage } from '../index';
 
 const task = 'sass';
 
 gulp.task( task, cb => {
-	const fileSrc = [ 'admin', 'editor', 'frontend', 'shared' ].map(
-		file => `${ assets }/scss/${ file }/${ file }.scss`,
-	);
+	const fileSrc = [
+		...scssFiles.map( file => `${ assets }/scss/${ file }/${ file }.scss` ),
+		`${ assets }/scss/blocks/blocks-editor.scss`,
+	];
 
 	pump(
 		[
 			gulp.src( fileSrc ),
 			sourcemaps.init( { loadMaps: true } ),
 			sass( { importer: tildeImporter } ).on( 'error', sass.logError ),
-			/*
-		eslint-disable
-		phpcs( {
-			bin: `${baseDir}/vendor/bin/phpcs`,
-			standard: 'wp-coding-standards',
-			warningSeverity: 0,
-		} ),
-		phpcs.reporter( 'log' ),
-		eslint-enable
-		*/
 			postcss( [
 				require( 'postcss-preset-env' )( {
 					stage: 3,
+					autoprefixer: {
+						grid: true,
+					},
 				} ),
 			] ),
 			gulp.dest( `${ dist }/css` ),

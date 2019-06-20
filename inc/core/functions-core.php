@@ -22,8 +22,51 @@ function setup() {
 	add_action( 'after_setup_theme',         $n( 'theme_setup' ) );
 	add_action( 'wp_enqueue_scripts',        $n( 'scripts' ) );
 	add_action( 'wp_enqueue_scripts',        $n( 'styles' ) );
+	add_action( 'wp_head',                   $n( 'js_detection' ), 0 );
 	add_action( 'widgets_init',              $n( 'widgets' ) );
+
+	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
 	//add_filter( 'acf/fields/google_map/api', $n( 'acf_map_api' ) );
+}
+
+/**
+ * Handles JavaScript detection.
+ *
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ *
+ * @return void
+ */
+function js_detection() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+
+/**
+ * Add async/defer attributes to enqueued scripts that have the specified script_execution flag.
+ *
+ * @link https://core.trac.wordpress.org/ticket/12009
+ * @param string $tag    The script tag.
+ * @param string $handle The script handle.
+ * @return string
+ */
+function script_loader_tag( $tag, $handle ) {
+	$script_execution = wp_scripts()->get_data( $handle, 'script_execution' );
+	if ( ! $script_execution ) {
+		return $tag;
+	}
+	if ( 'async' !== $script_execution && 'defer' !== $script_execution ) {
+		return $tag;
+	}
+	// Abort adding async/defer for scripts that have this script as a dependency. _doing_it_wrong()?
+	foreach ( wp_scripts()->registered as $script ) {
+		if ( in_array( $handle, $script->deps, true ) ) {
+			return $tag;
+		}
+	}
+	// Add the attribute if it hasn't already been added.
+	if ( ! preg_match( ":\s$script_execution(=|>|\s):", $tag ) ) {
+		$tag = preg_replace( ':(?=></script>):', " $script_execution", $tag, 1 );
+	}
+	return $tag;
 }
 
 /**
@@ -32,6 +75,8 @@ function setup() {
  * Translations can be added to the /languages directory.
  * If you're building a theme based on "cerium", change the
  * filename of '/languages/cerium.pot' to the name of your project.
+ *
+ * @return void
  */
 function i18n() {
 	load_theme_textdomain( 'cerium', CERIUM_PATH . '/languages' );
@@ -39,6 +84,8 @@ function i18n() {
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * @return void
  */
 function theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
@@ -86,6 +133,10 @@ function theme_setup() {
 
 /**
  * Enqueue scripts for front-end.
+ *
+ * Inspired by https://github.com/10up/theme-scaffold/blob/master/includes/core.php
+ *
+ * @return void
  */
 function scripts() {
 
@@ -120,6 +171,8 @@ function scripts() {
 
 /**
  * Enqueue styles for front-end.
+ *
+ * @return void
  */
 function styles() {
 
@@ -128,6 +181,8 @@ function styles() {
 
 /**
  * Register widget areas.
+ *
+ * @return void
  */
 function widgets() {
 
@@ -155,7 +210,7 @@ function acf_map_api( $api ) {
 	return $api;
 }
 
-// Add ACF options page.
+// Add ACF options page if ACF is enabled.
 if ( function_exists( 'acf_add_options_page' ) ) {
 
 	acf_add_options_page(

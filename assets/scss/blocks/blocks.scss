@@ -1,0 +1,14 @@
+/**
+ * See comment in /assets/js/blocks/blocks.js
+ *
+ * Create a plugin for custom blocks and add any styles that are critical
+ * to the block's core purpose within the plugin. Remaining styles can
+ * go here.
+ *
+ * A good way to think of this: are certain styles needed for the custom block
+ * to make sense regardless of whatever theme is active? For example, if you
+ * create a three-column block, it would be acceptable to set up the column
+ * layout in your plugin stylesheet. But if you need your headings and text
+ * colors to reflect specifics from the design, those styles are probably
+ * better hanndled in the theme here.
+ */

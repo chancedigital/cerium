@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The template for displaying search results pages.
  *
  * @package cerium
  */
@@ -10,7 +10,7 @@ get_header();
 
 <div class="container">
 
-	<main id="main" class="page-index__main" itemscope itemtype="https://schema.org/SearchResultsPage">
+	<main id="main" class="page-search__main" itemscope itemtype="https://schema.org/SearchResultsPage">
 
 		<h1>
 			<?php
@@ -21,13 +21,13 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<ul class="page-index__post-list">
+			<ul class="page-search__post-list">
 				<?php
 				while ( have_posts() ) :
 					the_post();
 					?>
 
-					<li class="page-index__post-list-item" itemscope itemtype="http://schema.org/BlogPosting">
+					<li class="page-search__post-list-item" itemscope itemtype="https://schema.org/Thing">
 						<?php get_template_part( 'parts/components/post-excerpt' ) ?>
 					</li>
 
@@ -39,7 +39,7 @@ get_header();
 
 	</main>
 
-	<aside id="sidebar" class="page-index__sidebar">
+	<aside id="sidebar" class="page-search__sidebar">
 		<?php get_sidebar(); ?>
 	</aside>
 

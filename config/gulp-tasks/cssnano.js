@@ -4,9 +4,7 @@ import rename from 'gulp-rename';
 import sourcemaps from 'gulp-sourcemaps';
 import pump from 'pump';
 import filter from 'gulp-filter';
-import { dist } from '../gulp.settings.babel';
-
-// import livereload from 'gulp-livereload';
+import { dist } from '../index';
 
 gulp.task( 'cssnano', cb => {
 	const fileDest = `${ dist }/css`,
@@ -58,8 +56,6 @@ gulp.task( 'cssnano', cb => {
 			sourcemaps.write( './' ),
 			gulp.dest( fileDest ),
 			filter( '**/*.css' ),
-
-			// livereload(),
 		],
 		cb,
 	);

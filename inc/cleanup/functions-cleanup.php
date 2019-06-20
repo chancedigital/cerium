@@ -13,10 +13,12 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\start_cleanup' );
  * Add hooks.
  */
 function start_cleanup() {
-	add_action( 'init',          __NAMESPACE__ . '\\cleanup_head' );
-	add_filter( 'the_generator', __NAMESPACE__ . '\\remove_rss_version' );
-	add_filter( 'wp_head',       __NAMESPACE__ . '\\remove_wp_widget_recent_comments_style', 1 );
-	add_action( 'wp_head',       __NAMESPACE__ . '\\remove_recent_comments_style', 1 );
+	add_action( 'init',              __NAMESPACE__ . '\\cleanup_head' );
+	add_filter( 'the_generator',     __NAMESPACE__ . '\\remove_rss_version' );
+	add_filter( 'wp_head',           __NAMESPACE__ . '\\remove_wp_widget_recent_comments_style', 1 );
+	add_action( 'wp_head',           __NAMESPACE__ . '\\remove_recent_comments_style', 1 );
+	add_filter( 'tiny_mce_plugins',  __NAMESPACE__ . '\\disable_emojis_tinymce' );
+	add_filter( 'wp_resource_hints', __NAMESPACE__ . '\\disable_emoji_dns_prefetch', 10, 2 );
 }
 
 /**
@@ -58,10 +60,12 @@ function cleanup_head() {
 	remove_action( 'wp_head', 'wp_generator' );
 
 	// Emoji detection script.
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_head',             'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 
 	// Emoji styles.
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_print_styles',    'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
 
 /**
@@ -73,6 +77,8 @@ function remove_rss_version() {
 
 /**
  * Remove injected CSS for recent comments widget.
+ *
+ * @return void
  */
 function remove_wp_widget_recent_comments_style() {
 	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
@@ -82,10 +88,44 @@ function remove_wp_widget_recent_comments_style() {
 
 /**
  * Remove injected CSS from recent comments widget.
+ *
+ * @return void
  */
 function remove_recent_comments_style() {
 	global $wp_widget_factory;
 	if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
 		remove_action( 'wp_head', [ $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ] );
 	}
+}
+
+/**
+ * Filter function used to remove the TinyMCE emoji plugin.
+ *
+ * @link https://developer.wordpress.org/reference/hooks/tiny_mce_plugins/
+ *
+ * @param  array $plugins An array of default TinyMCE plugins.
+ * @return array          An array of TinyMCE plugins, without wpemoji.
+ */
+function disable_emojis_tinymce( $plugins ) {
+	if ( is_array( $plugins ) && in_array( 'wpemoji', $plugins, true ) ) {
+		return array_diff( $plugins, [ 'wpemoji' ] );
+	}
+	return $plugins;
+}
+/**
+ * Remove emoji CDN hostname from DNS prefetching hints.
+ *
+ * @link https://developer.wordpress.org/reference/hooks/emoji_svg_url/
+ *
+ * @param  array  $urls          URLs to print for resource hints.
+ * @param  string $relation_type The relation type the URLs are printed for.
+ * @return array                 Difference betwen the two arrays.
+ */
+function disable_emoji_dns_prefetch( $urls, $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
+		/** This filter is documented in wp-includes/formatting.php */
+		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+		$urls = array_values( array_diff( $urls, [ $emoji_svg_url ] ) );
+	}
+	return $urls;
 }

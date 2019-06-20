@@ -4,10 +4,13 @@ const baseDir = path.resolve( __dirname, '../' );
 const nodeModules = path.resolve( __dirname, '../node_modules' );
 const assets = path.resolve( __dirname, '../assets' );
 const dist = path.resolve( __dirname, '../dist' );
+const env = process.env.NODE_ENV;
+const isDev = env === 'development';
+const isProd = env === 'production';
+const isStaging = env === 'staging';
+
+// Theme directory / slug
 const themeName = 'cerium';
-const publicPath = `/wp-content/themes/${ themeName }/${ path.basename(
-	dist,
-) }/`;
 
 module.exports = {
 	themeName,
@@ -15,7 +18,13 @@ module.exports = {
 	nodeModules,
 	assets,
 	dist,
-	publicPath,
+	env,
+	isDev,
+	isProd,
+	isStaging,
+	publicPath: `/wp-content/themes/${ themeName }/${ path.basename( dist ) }/`,
+	devUrl: 'http://cerium.local',
+	proxyUrl: 'http://localhost:3000',
 	packagePaths: [
 		'**/*',
 		'!**/node_modules/**',
@@ -36,8 +45,7 @@ module.exports = {
 		'!**/package-lock.json',
 		'!**/yarn-lock.json',
 	],
-	successMessage: task => `TASK: "${ task }" Completed! 💯`,
-	jsFiles: [ 'admin', 'editor', 'frontend', 'shared' ],
-	scssFiles: [ 'admin', 'editor', 'frontend', 'shared' ],
-	mode: process.env.NODE_ENV || 'production',
+	successMessage: task => `TASK: "${ task }" Completed! 🍻`,
+	jsFiles: [ 'admin', 'frontend', 'blocks', 'shared' ],
+	scssFiles: [ 'admin', 'frontend', 'blocks', 'shared' ],
 };

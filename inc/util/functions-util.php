@@ -21,3 +21,17 @@ function is_multi_array( array $a = [] ) {
 	}
 	return false;
 }
+
+/**
+ * Extract colors from a CSS or Sass file
+ *
+ * @param string $path the path to your CSS variables file
+ */
+function get_colors( $path ) {
+	$dir = get_stylesheet_directory();
+	if ( file_exists( $dir . $path ) ) {
+		$css_vars = file_get_contents( $dir . $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+		preg_match_all( ' /#([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?\b/', $css_vars, $matches );
+		return $matches[0];
+	}
+}

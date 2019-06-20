@@ -1,9 +1,7 @@
 import gulp from 'gulp';
 import path from 'path';
 import requireDir from 'require-dir';
-import { assets } from './gulp.settings.babel';
-
-// import livereload from 'gulp-livereload';
+import { assets, baseDir } from './index';
 
 requireDir( './gulp-tasks' );
 
@@ -22,22 +20,28 @@ gulp.task( 'watch', () => {
 		gulp.series( 'cssProcess' ),
 	);
 	gulp.watch(
-		`../${ path.basename( assets ) }/js/**/*`,
+		`../${ path.basename( assets ) }/js/**/*.js`,
 		gulp.series( 'jsProcess' ),
 	);
 	gulp.watch(
 		`../${ path.basename( assets ) }/img/**/*`,
 		gulp.series( 'imageProcess' ),
 	);
+	//gulp.watch(
+	//	`../${ path.basename( baseDir ) }/**/*.php`,
+	//	gulp.series( 'phpcs' ),
+	//);
 } );
 
 gulp.task(
 	'default',
 	gulp.parallel(
+		// 'phpcs',
 		'copyProcess',
 		'cssProcess',
-		gulp.series( 'webpack', 'images', 'watch' ),
+		gulp.series( 'webpack', 'images' ),
 	),
 );
 
-gulp.task( 'build', gulp.series( 'set-prod-node-env', 'default' ) );
+gulp.task( 'dev', gulp.series( 'default', 'watch' ) );
+gulp.task( 'build', gulp.series( 'default' ) );

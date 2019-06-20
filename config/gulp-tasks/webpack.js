@@ -3,7 +3,7 @@ import pump from 'pump';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
 import notify from 'gulp-notify';
-import { assets, dist, successMessage } from '../gulp.settings.babel';
+import { assets, dist, successMessage } from '../index';
 
 // import livereload from 'gulp-livereload';
 
