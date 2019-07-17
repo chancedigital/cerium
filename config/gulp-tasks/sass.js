@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
@@ -66,13 +67,8 @@ gulp.task( task, cb => {
 			sourcemaps.init( { loadMaps: true } ),
 			sass( { importer: tildeImporter } ).on( 'error', sass.logError ),
 			postcss( postcssPlugins ),
-			sourcemaps.write( './', {
-				mapFile: function( mapFilePath ) {
-					return isProd
-						? mapFilePath.replace( '.css.map', '.min.css.map' )
-						: mapFilePath;
-				},
-			} ),
+			rename( { suffix: isProd ? '.min' : '' } ),
+			sourcemaps.write( './' ),
 			gulp.dest( `${ dist }/css` ),
 			notify( { message: successMessage( task ), onLast: true } ),
 		],
