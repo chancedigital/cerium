@@ -1,6 +1,8 @@
 Cerium
 =====================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/chancedigital/cerium.svg)](https://greenkeeper.io/)
+
 Cerium is a WordPress starter theme inspired by (and large chunks of it just plain stolen from) a few great sources that deserve credit:
 
 * [Theme Scaffold](https://github.com/10up/theme-scaffold) by [10up](https://10up.com/)
