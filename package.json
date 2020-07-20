@@ -90,7 +90,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "lodash": "4.17.14",
+    "lodash": "4.17.19",
     "what-input": "5.2.3"
   },
   "engineStrict": true,
